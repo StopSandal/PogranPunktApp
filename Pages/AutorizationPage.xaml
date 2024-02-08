@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PogranPunktApp.Pages.AutorizationPage"
+             >
+    <ScrollView>
+        <AbsoluteLayout VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Image Source="autorizS.jpg" Aspect="AspectFit"  ZIndex="-1" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" />
+            <StackLayout Margin="0,0,0,30" MinimumWidthRequest="420"  VerticalOptions="EndAndExpand"  HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" ZIndex="1" >
+                <Border   Padding="10,0,10,15"   BackgroundColor="#123432" Opacity="0.95" Stroke="#C49B33" StrokeThickness="4">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout>
+                        <Label Text="Табельный номер:" HorizontalOptions="CenterAndExpand" TextColor="Red" FontSize="Large" />
+                        <Entry x:Name="loginEntry" Placeholder="21-Soldat-34" TextColor="White" FontSize="Micro" />
+                        <Label Text="Пароль:" HorizontalOptions="CenterAndExpand" TextColor="Green" FontSize="Large" VerticalOptions="Start"/>
+                        <Entry x:Name="passwordEntry" IsPassword="True" Placeholder="***********" TextColor="White"  FontSize="Micro"/>
+                        <AbsoluteLayout HorizontalOptions="EndAndExpand">
+                            <Image ZIndex="-1"  Margin="0,5,0,0"  Source="flagrb.png"   MaximumWidthRequest="85" MaximumHeightRequest="85" ></Image>
+                            <Button ZIndex="3"  Margin="12,5,0,0" BorderColor="Transparent" BackgroundColor="Transparent" Clicked="AutorizationButton_Click" Padding="0" Text="Войти" FontSize="Medium" TextColor="Ivory" VerticalOptions="Center" />
+                        </AbsoluteLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentPage>

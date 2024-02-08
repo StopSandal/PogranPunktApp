@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PogranPunktApp.Pages.MainMenuPage"
+             Title="MainMenuPage">
+    <VerticalStackLayout Padding="0" Margin="0">
+        <VerticalStackLayout Padding="5,10,5,5" BackgroundColor="Aquamarine" Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End">
+            <Label Text="Пользователь : Малашков" FontSize="Default"/>
+            <Label Text="Уровень доступа : Админимтратор" FontSize="Default"/>
+            
+        </VerticalStackLayout>
+        <HorizontalStackLayout>
+            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
+            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
+            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
+            <Label Text="Отдел Регистрации Перемещений" />
+            <Label Text="Отдел Регистрации Граждан" />
+            <Label Text="Отдел Регистрации Автотранспорта" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
+            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
+
+            <Label Text="Отдел Кадров" />
+            <Label Text="Отдел Товарного контроля" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Background="Black">
+        <HorizontalStackLayout Background="Aqua" VerticalOptions="End">
+            <Label Text="Просмотр логов приложения" />
+        </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+
+
+    </VerticalStackLayout>
+</ContentPage> 
