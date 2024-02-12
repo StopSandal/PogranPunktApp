@@ -20,7 +20,7 @@ public partial class AutorizationPage : ContentPage
             DisplayAlert("Поздравляю!", "Ты прошёл проверку, товарищ.\nТы готов служить Родине и Стране. За Родину, За Республику оф Беларусь!\n\n Я получил повестку и готов пройти в военкомат " + DateTime.Now, "Согласен на СБО");
 			//Добавить логирование неудач входа
     }
-    private void EstablishSQLDatabaseConnection(string path)
+    private async void EstablishSQLDatabaseConnection(string path)
 	{
 
 	}

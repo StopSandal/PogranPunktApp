@@ -6,4 +6,9 @@ public partial class MainMenuPage : ContentPage
 	{
 		InitializeComponent();
 	}
+	private void ExitButtonHandler(object sender, EventArgs e)
+	{
+        App.Current.MainPage = new AutorizationPage();
+		UserInfo.UserInfo.UnloginUser();
+    }
 }

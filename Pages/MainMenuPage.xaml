@@ -3,35 +3,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PogranPunktApp.Pages.MainMenuPage"
              Title="MainMenuPage">
-    <VerticalStackLayout Padding="0" Margin="0">
-        <VerticalStackLayout Padding="5,10,5,5" BackgroundColor="Aquamarine" Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End">
+    <ContentPage.Resources>
+        <x:Double x:Key="MaxWidthRequest">270</x:Double>
+        <x:Double x:Key="MaxHeigthRequest">270</x:Double>
+        <x:Double x:Key="ImageMargin">50</x:Double>
+        
+    </ContentPage.Resources>
+    <ScrollView>
+    <VerticalStackLayout Padding="0" Margin="0" Background="Azure">
+        <VerticalStackLayout Margin="0,0,0,5"  Padding="5,10,5,5" BackgroundColor="Aquamarine" Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End">
             <Label Text="Пользователь : Малашков" FontSize="Default"/>
             <Label Text="Уровень доступа : Админимтратор" FontSize="Default"/>
-            
         </VerticalStackLayout>
-        <HorizontalStackLayout>
-            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
-            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
-            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
-            <Label Text="Отдел Регистрации Перемещений" />
-            <Label Text="Отдел Регистрации Граждан" />
-            <Label Text="Отдел Регистрации Автотранспорта" />
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
-            <BoxView Margin="100,50" BackgroundColor="BlueViolet" Opacity="0.8" HeightRequest="200" WidthRequest="200"/>
+        <Grid RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-            <Label Text="Отдел Кадров" />
-            <Label Text="Отдел Товарного контроля" />
-        </HorizontalStackLayout>
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                <Image Source="routes.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Перемещений" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                <Image Source="passport.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Граждан" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="0" Grid.Column="2">
+                <Image Source="auto.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Автотранспорта" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" >
+                <Image Source="hr.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Кадров" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1">
+                <Image Source="book.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                    <Label  FontSize="Title" HorizontalOptions="Center" Text="Отдел Товарного контроля" />
+            </VerticalStackLayout>
 
-        <HorizontalStackLayout Background="Black">
-        <HorizontalStackLayout Background="Aqua" VerticalOptions="End">
-            <Label Text="Просмотр логов приложения" />
-        </HorizontalStackLayout>
-        </HorizontalStackLayout>
-
-
-
+        </Grid>
+        <StackLayout Margin="0" Padding="0" Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <VerticalStackLayout Margin="5,10,0,0" HorizontalOptions="StartAndExpand">
+                <Image Source="log.png"  MaximumWidthRequest="100" MaximumHeightRequest="100"></Image>
+            </VerticalStackLayout>
+            <VerticalStackLayout Padding="0,0,0,0" Margin="0,30,10,0" HorizontalOptions="EndAndExpand">
+                    <Button ImageSource="exit.png" Clicked="ExitButtonHandler" MaximumWidthRequest="100" MaximumHeightRequest="80" BackgroundColor="Transparent" BorderWidth="0"/>
+                </VerticalStackLayout>
+        </StackLayout>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage> 

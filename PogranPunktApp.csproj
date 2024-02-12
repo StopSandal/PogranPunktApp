@@ -50,9 +50,16 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\Images\auto.jpg" />
 	  <None Remove="Resources\Images\autorizM.jpg" />
 	  <None Remove="Resources\Images\autorizS.jpg" />
+	  <None Remove="Resources\Images\book.jpg" />
+	  <None Remove="Resources\Images\exit.png" />
 	  <None Remove="Resources\Images\flagRB.png" />
+	  <None Remove="Resources\Images\hr.jpg" />
+	  <None Remove="Resources\Images\log.png" />
+	  <None Remove="Resources\Images\passport.jpg" />
+	  <None Remove="Resources\Images\routes.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
