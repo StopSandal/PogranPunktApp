@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using PogranPunktApp.Extensions;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Security;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +14,7 @@ namespace PogranPunktApp.UserInfo
 {
     public static class UserInfo
     {
-        private static string m_UserLogin;
+        private static string m_UserLogin = string.Empty;
         public static string UserLogin {  get { return m_UserLogin; } }
         private static string m_UserName;
         public static string UserName { get { return m_UserName; } }
@@ -35,6 +40,19 @@ namespace PogranPunktApp.UserInfo
             m_UserLogin = UserLogin;
             m_UserName = UserName;
             m_LevelOfRules = levelOfRules;
+        }
+        public static bool ParseUser( DataRow row, string userPassword)
+        {
+            if(row == null || row.IsNull(0) ) 
+                return false;
+            string password = (String)row[2];
+            if (userPassword.GetMd5Hash() == password)
+            {
+                LoginUser((String)row[4], (String)row[1], (Roles)(int)row[3]);
+                return true;
+            }
+            return false;
+            
         }
 
     }

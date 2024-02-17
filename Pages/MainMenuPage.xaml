@@ -12,8 +12,8 @@
     <ScrollView>
     <VerticalStackLayout Padding="0" Margin="0" Background="Azure">
         <VerticalStackLayout Margin="0,0,0,5"  Padding="5,10,5,5" BackgroundColor="Aquamarine" Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End">
-            <Label Text="Пользователь : Малашков" FontSize="Default"/>
-            <Label Text="Уровень доступа : Админимтратор" FontSize="Default"/>
+            <Label Text="Пользователь: Малашков" FontSize="Default" x:Name="userLoginLable"/>
+            <Label Text="Уровень доступа: Админимтратор" FontSize="Default" x:Name="levelLable"/>
         </VerticalStackLayout>
         <Grid RowSpacing="5">
             <Grid.RowDefinitions>

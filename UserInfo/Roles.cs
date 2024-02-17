@@ -13,4 +13,11 @@ namespace PogranPunktApp.UserInfo
         Admin = 2
 
     }
+    public static class RolesMethods
+    {
+        public static string RolesToString(Roles roles)
+        {
+            return string.Empty;
+        }
+    }
 }
