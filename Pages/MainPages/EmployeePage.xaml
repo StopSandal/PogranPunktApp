@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PogranPunktApp.Pages.MainPages.EmployeePage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Fill">
+            
+            <VerticalStackLayout BackgroundColor="NavajoWhite" HorizontalOptions="CenterAndExpand">
+                <Label Text="Управление Сотрудниками"/>
+                <VerticalStackLayout BackgroundColor="Blue"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
+                    <Label Text="Регистрация пользователей"/>
+                    <Label Text="Добавить Сотрудника"  VerticalOptions="CenterAndExpand"/>
+                    <Label Text="Просмотреть список сотрудников"  VerticalOptions="CenterAndExpand"/>
+                    <Label Text="Измененме должностей(Не факт)"  VerticalOptions="CenterAndExpand"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout BackgroundColor="Red" VerticalOptions="EndAndExpand">
+                <Label Text="График Дежурств"/>
+                <Label Text="Пормотреть"/>
+                <Label Text="Изменить"/>
+                <Label Text="Просмотреть визулаьно для одного сотрудника"/>
+                
+            </VerticalStackLayout>
+            <Button Clicked="Back" Text="Назад"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

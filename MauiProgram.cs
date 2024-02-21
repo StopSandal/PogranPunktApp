@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Controls.PlatformConfiguration;
 
 namespace PogranPunktApp
 {
@@ -21,13 +20,13 @@ namespace PogranPunktApp
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
-            {
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
+                        {
 
 #if WINDOWS
-               
+
 #endif
-            });
+                        });
             return builder.Build();
         }
     }

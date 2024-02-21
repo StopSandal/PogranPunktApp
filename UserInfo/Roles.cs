@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PogranPunktApp.UserInfo
+﻿namespace PogranPunktApp.UserInfo
 {
     public enum Roles
     {
@@ -17,7 +11,13 @@ namespace PogranPunktApp.UserInfo
     {
         public static string RolesToString(Roles roles)
         {
-            return string.Empty;
+            switch (roles)
+            {
+                case Roles.Guest: return "Гость";
+                case Roles.User: return "Сотрудник";
+                case Roles.Admin: return "Администратор";
+                default: return "Неизвестно";
+            }
         }
     }
 }

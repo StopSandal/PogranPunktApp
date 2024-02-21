@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PogranPunktApp.Pages.MainMenuPage"
-             Title="MainMenuPage">
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+              >
     <ContentPage.Resources>
         <x:Double x:Key="MaxWidthRequest">270</x:Double>
         <x:Double x:Key="MaxHeigthRequest">270</x:Double>
         <x:Double x:Key="ImageMargin">50</x:Double>
-        
     </ContentPage.Resources>
     <ScrollView>
     <VerticalStackLayout Padding="0" Margin="0" Background="Azure">
@@ -25,25 +26,54 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <VerticalStackLayout Grid.Row="0" Grid.Column="0">
-                <Image Source="routes.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
-                <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Перемещений" />
+            <!-- Перемещения -->
+            <VerticalStackLayout x:Name="stackRoutes" Grid.Row="0" Grid.Column="0">
+                    <ImageButton Clicked="ToRoutesPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="routes.jpg"   MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                        <ImageButton.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnButtonHover"
+                              PointerExited="OnButtonUnhover"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Перемещений" />
             </VerticalStackLayout>
-            <VerticalStackLayout Grid.Row="0" Grid.Column="1">
-                <Image Source="passport.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                <!-- Гражданины -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                    <ImageButton Clicked="ToCivilianPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="passport.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                        <ImageButton.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonHover"
+                              PointerExited="OnButtonUnhover"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
                     <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Граждан" />
             </VerticalStackLayout>
-            <VerticalStackLayout Grid.Row="0" Grid.Column="2">
-                <Image Source="auto.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                <!-- Авто -->
+                <VerticalStackLayout Grid.Row="0" Grid.Column="2">
+                    <ImageButton Clicked="ToAutoPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="auto.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                        <ImageButton.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonHover"
+                              PointerExited="OnButtonUnhover"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
                     <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Автотранспорта" />
             </VerticalStackLayout>
-            <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" >
-                <Image Source="hr.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                <!-- Сотрудники -->
+                <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" >
+                    <ImageButton Clicked="ToEmployeePage"  CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="hr.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                        <ImageButton.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnButtonHover"
+                              PointerExited="OnButtonUnhover"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
                     <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Кадров" />
             </VerticalStackLayout>
-            <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1">
-                <Image Source="book.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}"></Image>
+                <!-- Товары -->
+                <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1">
+                    <ImageButton Clicked="ToGoodsPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="book.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                        <ImageButton.GestureRecognizers>
+                            <PointerGestureRecognizer PointerEntered="OnButtonHover"
+                                    PointerExited="OnButtonUnhover"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
                     <Label  FontSize="Title" HorizontalOptions="Center" Text="Отдел Товарного контроля" />
             </VerticalStackLayout>
 

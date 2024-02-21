@@ -1,4 +1,5 @@
-﻿using PogranPunktApp.SQL;
+﻿using PogranPunktApp.Pages;
+using PogranPunktApp.SQL;
 
 namespace PogranPunktApp
 {
@@ -8,8 +9,8 @@ namespace PogranPunktApp
         {
 
             InitializeComponent();
+            MainPage = new NavigationPages(new AutorizationPage());
 
-            MainPage = new AppShell();
         }
         protected override void OnStart()
         {
