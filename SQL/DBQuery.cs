@@ -36,41 +36,21 @@ namespace PogranPunktApp.SQL
             return null;
         }
 
-        /* Unmerged change from project 'PogranPunktApp (net7.0-android)'
-        Before:
-                public static DataRow getUserInfo(string userName) {
-                using (var connetion = new SqlConnection(DBInfo.ConnectionString))
-        After:
-                public static DataRow getUserInfo(string userName)
-                {
-                    using (var connetion = new SqlConnection(DBInfo.ConnectionString))
-        */
-
-        /* Unmerged change from project 'PogranPunktApp (net7.0-windows10.0.19041.0)'
-        Before:
-                public static DataRow getUserInfo(string userName) {
-                using (var connetion = new SqlConnection(DBInfo.ConnectionString))
-        After:
-                public static DataRow getUserInfo(string userName)
-                {
-                    using (var connetion = new SqlConnection(DBInfo.ConnectionString))
-        */
-
-        /* Unmerged change from project 'PogranPunktApp (net7.0-maccatalyst)'
-        Before:
-                public static DataRow getUserInfo(string userName) {
-                using (var connetion = new SqlConnection(DBInfo.ConnectionString))
-        After:
-                public static DataRow getUserInfo(string userName)
-                {
-                    using (var connetion = new SqlConnection(DBInfo.ConnectionString))
-        */
         public static DataRow getUserInfo(string userName)
         {
             using (var connetion = new SqlConnection(DBInfo.ConnectionString))
             {
                 connetion.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select * from Users where '" + userName + "' = Login", connetion);
+                SqlDataAdapter adapter = new SqlDataAdapter("Select * from Users where @userName = Login COLLATE SQL_Latin1_General_CP1_CS_AS", connetion);
+                adapter.SelectCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@userName",
+                    Value = userName,
+                    SqlDbType = SqlDbType.VarChar,
+                    
+                });
+
+
                 DataSet data = new DataSet();
                 adapter.Fill(data);
                 if (data.Tables[0].Rows.Count != 1)

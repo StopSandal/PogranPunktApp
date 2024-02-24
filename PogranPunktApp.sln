@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PogranPunktApp", "PogranPunktApp.csproj", "{9627692A-CA43-4DB1-9ECF-037EC48CBF4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PogranPunktApp", "PogranPunktApp.csproj", "{9627692A-CA43-4DB1-9ECF-037EC48CBF4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB_EF", "..\DB_EF\DB_EF.csproj", "{6DF38D6E-202E-4645-A085-666D82A9F0A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{9627692A-CA43-4DB1-9ECF-037EC48CBF4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9627692A-CA43-4DB1-9ECF-037EC48CBF4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9627692A-CA43-4DB1-9ECF-037EC48CBF4E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6DF38D6E-202E-4645-A085-666D82A9F0A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF38D6E-202E-4645-A085-666D82A9F0A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF38D6E-202E-4645-A085-666D82A9F0A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF38D6E-202E-4645-A085-666D82A9F0A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
