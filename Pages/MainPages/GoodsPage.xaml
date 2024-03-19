@@ -2,11 +2,78 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PogranPunktApp.Pages.MainPages.GoodsPage"
-             Title="GoodsPage">
-    <VerticalStackLayout x:Name="mainLayout">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:data="clr-namespace:Syncfusion.Maui.Data;assembly=Syncfusion.Maui.Data"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:GroupMarkComparer x:Key="comparer" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+            <syncfusion:SfDataGrid 
+                x:Name="dataGrid"
+                GridLinesVisibility="Both"
+                ColumnWidthMode="Fill"
+                HorizontalOptions="FillAndExpand"
+                HeaderGridLinesVisibility="Both"
+                VerticalOptions="Fill"
+                AutoGenerateColumnsMode="None"
+                GroupingMode="Single"
+                Margin="20,10,20,0"
+                SortingMode="None"
+                ShowColumnWhenGrouped="False"
+                GroupCaptionTextFormat="{}{Key}"
+                LiveDataUpdateMode="AllowDataShaping"
+                BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                DefaultStyle="{StaticResource DataGridMainStyle}"
+                AutoExpandGroups="True"
+                AllowGroupExpandCollapse="True"
+               
+                >
+
+                <syncfusion:SfDataGrid.SortComparers>
+                    <data:SortComparer PropertyName="GroupMark" Comparer="{StaticResource comparer}"/>
+                </syncfusion:SfDataGrid.SortComparers>
+                <syncfusion:SfDataGrid.GroupColumnDescriptions>
+                    <syncfusion:GroupColumnDescription ColumnName="GroupMark" />
+                </syncfusion:SfDataGrid.GroupColumnDescriptions>
+                <syncfusion:SfDataGrid.Columns>
+
+                    <syncfusion:DataGridTextColumn MappingName="GroupMark" HeaderText="Группирование"  GroupMode="Display"/>
+                    <syncfusion:DataGridTextColumn MappingName="Название" HeaderText="Название" ColumnWidthMode="FitByCell"/>
+                    <syncfusion:DataGridTextColumn MappingName="Количество" HeaderText="Количество"/>
+                    <syncfusion:DataGridTextColumn MappingName="ОбщаяСумма" HeaderText="Общая Сумма"/>
+                    <syncfusion:DataGridTextColumn MappingName="СуммаПошлины" HeaderText="Сумма Пошлины"/>
+                   
+
+                    <syncfusion:DataGridTextColumn MappingName="Вес" HeaderText="Вес"/>
+                    <syncfusion:DataGridTextColumn MappingName="Стоимость" HeaderText="Стоимость"/>
+                    <syncfusion:DataGridTextColumn MappingName="ВидПошлины" HeaderText="Группа Товаров"/>
+                    <syncfusion:DataGridTextColumn MappingName="Ставка" HeaderText="Ставка,%"/>
+                </syncfusion:SfDataGrid.Columns>
+
+                
+            </syncfusion:SfDataGrid>
+            <StackLayout>
+                <StackLayout Orientation="Vertical" Margin="0,0,5,0">
+                    <Label Text="Отчётность" TextColor="{StaticResource TextContrastColor}" HorizontalTextAlignment="Center" FontSize="Large"/>
+                    
+                    <Button Padding="0" Text="Открыть график&#x0a;видов товаров" WidthRequest="170" HeightRequest="70" LineBreakMode="WordWrap" Clicked="OpenColumnDiagramPage" BorderColor="Black" BackgroundColor="White" TextColor="Black" />
+                    <Button Margin="0,2,0,0" Padding="0" Text="    Открыть график&#x0a;работы предприятия" WidthRequest="170" HeightRequest="70" LineBreakMode="WordWrap" Clicked="OpenLineDiagramPage" BorderColor="Black" BackgroundColor="White" TextColor="Black"/>
+                </StackLayout>
+                
+            </StackLayout>
+
+        </StackLayout>
+        <StackLayout>
+            <local:BackButton ></local:BackButton>
+        </StackLayout>
+
+    </StackLayout>
 </ContentPage>

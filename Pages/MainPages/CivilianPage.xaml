@@ -2,11 +2,70 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PogranPunktApp.Pages.MainPages.CivilianPage"
-             Title="CivilianPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             >
+
+    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+            <syncfusion:SfDataGrid 
+                x:Name="dataGrid"
+                GridLinesVisibility="Both"
+                ColumnWidthMode="Fill"
+                HorizontalOptions="FillAndExpand"
+                HeaderGridLinesVisibility="Both"
+                VerticalOptions="Fill"
+                SelectionMode="SingleDeselect"
+                AllowEditing="True"
+                
+                SortingMode="Multiple"
+                AllowTriStateSorting="True"
+                Margin="20,10,80,0"
+                ClipToBounds="True"
+                ShowSortNumbers="True"
+                AutoGenerateColumnsMode="None"
+                BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                DefaultStyle="{StaticResource DataGridMainStyle}"
+                >
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn MappingName="ФИО" HeaderText="ФИО Гражданина">
+                        
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridTextColumn MappingName="НомерПаспорта" HeaderText="Номер Паспорта" HeaderTextAlignment="Center" CellTextAlignment="Center">
+
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridDateColumn MappingName="ДатаРождения" HeaderTextAlignment="Center" CellTextAlignment="Center" HeaderText="Дата Рождения">
+                        
+                    </syncfusion:DataGridDateColumn>
+                    <syncfusion:DataGridTextColumn MappingName="АдресПроживания" HeaderText="Адрес Проживания" HeaderTextAlignment="Center" CellTextAlignment="Center" >
+
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridComboBoxColumn MappingName="IdСтраны" HeaderTextAlignment="Center" CellTextAlignment="Center"   >
+                  
+                    </syncfusion:DataGridComboBoxColumn>
+
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <StackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Найти по ФИО" HorizontalTextAlignment="Center" TextColor="{StaticResource TextContrastColor}"/>
+                    <Entry  TextChanged="FilterByName" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="200"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Найти по Номеру Паспорта" HorizontalTextAlignment="Center" TextColor="{StaticResource TextContrastColor}"/>
+                    <Entry TextChanged="FilterByPassport" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="200"/>
+                </VerticalStackLayout>
+
+                <Button Text="Обновить" Clicked="RefreshDataGrid"/>
+            </StackLayout>
+
+        
+        </StackLayout>
+        <StackLayout>
+            <local:BackButton ></local:BackButton>
+        </StackLayout>
+        
+    </StackLayout>
 </ContentPage>

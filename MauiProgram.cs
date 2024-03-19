@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace PogranPunktApp
 {
@@ -20,13 +21,8 @@ namespace PogranPunktApp
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
-                        {
-
-#if WINDOWS
-
-#endif
-                        });
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF1cXmhJfU12Rn1Qdld5ZFdFallYTnNWSV9jS3pTdEdmWXpec3dTT2dVVg==");
+            builder.ConfigureSyncfusionCore();
             return builder.Build();
         }
     }

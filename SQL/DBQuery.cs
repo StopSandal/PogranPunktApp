@@ -31,9 +31,17 @@ namespace PogranPunktApp.SQL
             }
             return true;
         }
-        public static SqlDataReader getAllTable(string tableName)
+        public static DataTable getAllTable(string commandString)
         {
-            return null;
+
+            using (var connetion = new SqlConnection(DBInfo.ConnectionString))
+            {
+                connetion.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(commandString, connetion);
+                DataSet data = new DataSet();
+                adapter.Fill(data);
+                return data.Tables[0];
+            }
         }
 
         public static DataRow getUserInfo(string userName)

@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PogranPunktApp"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              x:Class="PogranPunktApp.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -9,6 +10,18 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="BackGroundColor">#627b3e</Color>
+            <Color x:Key="ElementsBackGroundColor">#96aa77</Color>
+            <Color x:Key="TextContrastColor">#ffffd7</Color>
+            <Color x:Key="BorderStorkeColor">#c41e3a</Color>
+            <syncfusion:DataGridStyle x:Key="DataGridMainStyle"
+   RowTextColor="Black"
+   HeaderRowTextColor="{StaticResource TextContrastColor}"
+   GridLineStrokeThickness="3"
+   GridLineColor="{StaticResource BorderStorkeColor}"
+   CurrentCellBorderColor="{StaticResource BorderStorkeColor}"
+   SelectedRowTextColor="Black"/>
         </ResourceDictionary>
+
     </Application.Resources>
 </Application>

@@ -6,16 +6,19 @@
              NavigationPage.HasBackButton="False"
               >
     <ContentPage.Resources>
-        <x:Double x:Key="MaxWidthRequest">270</x:Double>
-        <x:Double x:Key="MaxHeigthRequest">270</x:Double>
+        <x:Double x:Key="MaxWidthRequest">260</x:Double>
+        <x:Double x:Key="MaxHeigthRequest">260</x:Double>
         <x:Double x:Key="ImageMargin">50</x:Double>
+        <Color x:Key="LableTextColor">#ffffd7</Color>
     </ContentPage.Resources>
     <ScrollView>
-    <VerticalStackLayout Padding="0" Margin="0" Background="Azure">
-        <VerticalStackLayout Margin="0,0,0,5"  Padding="5,10,5,5" BackgroundColor="Aquamarine" Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End">
-            <Label Text="Пользователь: Малашков" FontSize="Default" x:Name="userLoginLable"/>
-            <Label Text="Уровень доступа: Админимтратор" FontSize="Default" x:Name="levelLable"/>
-        </VerticalStackLayout>
+        <VerticalStackLayout Padding="0" Margin="0" BackgroundColor="#627b3e">
+            <Border StrokeThickness="2" Stroke="#c41e3a" StrokeShape="RoundRectangle 10" Margin="5" Padding="0"  Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End" BackgroundColor="#96aa77" >
+                <VerticalStackLayout Margin="10" Padding="1" >
+                    <Label Text="Пользователь: Малашков" FontSize="Default" x:Name="userLoginLable"/>
+                    <Label Text="Уровень доступа: Админимтратор" FontSize="Default" x:Name="levelLable"/>
+                </VerticalStackLayout>
+            </Border>
         <Grid RowSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -28,53 +31,53 @@
             </Grid.ColumnDefinitions>
             <!-- Перемещения -->
             <VerticalStackLayout x:Name="stackRoutes" Grid.Row="0" Grid.Column="0">
-                    <ImageButton Clicked="ToRoutesPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="routes.jpg"   MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                    <ImageButton Clicked="ToRoutesPage" CornerRadius="15" Padding="0" Margin="0" BackgroundColor="Transparent" Source="routes.jpg"   MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
                         <ImageButton.GestureRecognizers>
                             <PointerGestureRecognizer PointerEntered="OnButtonHover"
                               PointerExited="OnButtonUnhover"/>
                         </ImageButton.GestureRecognizers>
                     </ImageButton>
-                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Перемещений" />
+                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Перемещений" TextColor="{StaticResource LableTextColor}"/>
             </VerticalStackLayout>
                 <!-- Гражданины -->
-                <VerticalStackLayout Grid.Row="0" Grid.Column="1">
-                    <ImageButton Clicked="ToCivilianPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="passport.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+            <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                    <ImageButton Clicked="ToCivilianPage" CornerRadius="15" Padding="0" Margin="0" BackgroundColor="Transparent" Source="passport.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
                         <ImageButton.GestureRecognizers>
                         <PointerGestureRecognizer PointerEntered="OnButtonHover"
                               PointerExited="OnButtonUnhover"/>
                         </ImageButton.GestureRecognizers>
                     </ImageButton>
-                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Граждан" />
+                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Граждан" TextColor="{StaticResource LableTextColor}" />
             </VerticalStackLayout>
                 <!-- Авто -->
                 <VerticalStackLayout Grid.Row="0" Grid.Column="2">
-                    <ImageButton Clicked="ToAutoPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="auto.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                    <ImageButton Clicked="ToAutoPage" CornerRadius="15" Padding="0" Margin="0" BackgroundColor="Transparent" Source="auto.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
                         <ImageButton.GestureRecognizers>
                         <PointerGestureRecognizer PointerEntered="OnButtonHover"
                               PointerExited="OnButtonUnhover"/>
                         </ImageButton.GestureRecognizers>
                     </ImageButton>
-                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Автотранспорта" />
+                        <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Регистрации Автотранспорта" TextColor="{StaticResource LableTextColor}"/>
             </VerticalStackLayout>
                 <!-- Сотрудники -->
                 <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" >
-                    <ImageButton Clicked="ToEmployeePage"  CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="hr.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                    <ImageButton Clicked="ToEmployeePage"  CornerRadius="15" Padding="0" Margin="0" BackgroundColor="Transparent" Source="hr.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
                         <ImageButton.GestureRecognizers>
                         <PointerGestureRecognizer PointerEntered="OnButtonHover"
                               PointerExited="OnButtonUnhover"/>
                         </ImageButton.GestureRecognizers>
                     </ImageButton>
-                    <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Кадров" />
+                            <Label FontSize="Title" HorizontalOptions="Center" Text="Отдел Кадров" TextColor="{StaticResource LableTextColor}" />
             </VerticalStackLayout>
                 <!-- Товары -->
                 <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1">
-                    <ImageButton Clicked="ToGoodsPage" CornerRadius="5" Padding="0" Margin="0" BackgroundColor="Transparent" Source="book.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
+                    <ImageButton Clicked="ToGoodsPage" CornerRadius="15" Padding="0" Margin="0" BackgroundColor="Transparent" Source="book.jpg" MaximumWidthRequest="{StaticResource MaxWidthRequest}" MaximumHeightRequest="{StaticResource MaxHeigthRequest}">
                         <ImageButton.GestureRecognizers>
                             <PointerGestureRecognizer PointerEntered="OnButtonHover"
                                     PointerExited="OnButtonUnhover"/>
                         </ImageButton.GestureRecognizers>
                     </ImageButton>
-                    <Label  FontSize="Title" HorizontalOptions="Center" Text="Отдел Товарного контроля" />
+                                <Label  FontSize="Title" HorizontalOptions="Center" Text="Отдел Товарного контроля" TextColor="{StaticResource LableTextColor}" />
             </VerticalStackLayout>
 
         </Grid>
@@ -83,7 +86,16 @@
                 <Image Source="log.png"  MaximumWidthRequest="100" MaximumHeightRequest="100"></Image>
             </VerticalStackLayout>
             <VerticalStackLayout Padding="0,0,0,0" Margin="0,30,10,0" HorizontalOptions="EndAndExpand">
-                    <Button ImageSource="exit.png" Clicked="ExitButtonHandler" MaximumWidthRequest="100" MaximumHeightRequest="80" BackgroundColor="Transparent" BorderWidth="0"/>
+                    <Button  ImageSource="exit.png" Clicked="ExitButtonHandler" MaximumWidthRequest="100" MaximumHeightRequest="80" BackgroundColor="Transparent" BorderWidth="0"  >
+                        <Button.Shadow>
+                            <Shadow Brush="WhiteSmoke"
+                                    Offset="0,0"
+                                    Radius="15"
+                                    Opacity="0.9"
+                                    />
+
+                        </Button.Shadow>                    
+                    </Button>
                 </VerticalStackLayout>
         </StackLayout>
     </VerticalStackLayout>

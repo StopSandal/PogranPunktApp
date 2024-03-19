@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PogranPunktApp.Pages.MainPages.SubPages.LineDiagramPage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:sync="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             Title="LineDiagramPage">
+    <ScrollView>
+    <StackLayout BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout Margin="10,10,10,0" VerticalOptions="Fill">
+                
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Border  Stroke="White" Padding="0" Margin="0" BackgroundColor="White" StrokeThickness="10" StrokeLineJoin="Round" HorizontalOptions="CenterAndExpand">
+
+                        <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent">
+                            <Button Clicked="DecrementButton" FontSize="Large" HorizontalOptions="End" Text="←" BackgroundColor="White" BorderColor="Gray" Padding="0" Margin="1,1,0,1" TextColor="Black"/>
+                            <Label Text="2024" x:Name="YearLabel" BackgroundColor="White" FontSize="Large"
+                                   HorizontalOptions="Center" Margin="5,0" />
+                            <Button Clicked="IncrementButton"  FontSize="Large" HorizontalOptions="Start" Text="→" BackgroundColor="White" BorderColor="Gray" Padding="0" Margin="0,1,1,1" TextColor="Black"/>
+                        </StackLayout>
+                    </Border>
+                    <Border Stroke="White" Padding="0" Margin="0" BackgroundColor="White" HorizontalOptions="End">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="StartAndExpand">
+
+                            <local:GraphicSelectorButton x:Name="MonthButton" BorderColor="Transparent" Clicked="FilterDiagram" DateFilter="Month" FontSize="Small" Text="Месяц"></local:GraphicSelectorButton>
+                            <BoxView Margin="0" VerticalOptions="FillAndExpand" BackgroundColor="DarkGray" WidthRequest="1"/>
+                            <local:GraphicSelectorButton x:Name="YearButton" BorderColor="Transparent" Clicked="FilterDiagram" DateFilter="Year" FontSize="Small" Text="Год"></local:GraphicSelectorButton>
+                            <BoxView Margin="0" VerticalOptions="FillAndExpand" BackgroundColor="DarkGray" WidthRequest="1"/>
+                            <local:GraphicSelectorButton x:Name="AllTimeButton" BorderColor="Transparent" Clicked="FilterDiagram" DateFilter="AllTime" FontSize="Small" Text="Всё время"></local:GraphicSelectorButton>
+                        </StackLayout>
+                    </Border>
+                </StackLayout>
+                
+            <syncfusion:SfCartesianChart x:Name="Diagram"
+                                         Title="Количество товаров категорий"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         HeightRequest="400"
+                                         >
+                    <syncfusion:SfCartesianChart.ZoomPanBehavior>
+                        <syncfusion:ChartZoomPanBehavior EnableSelectionZooming ="True"/>
+                    </syncfusion:SfCartesianChart.ZoomPanBehavior>
+                    
+                <syncfusion:SfCartesianChart.XAxes >
+                        <syncfusion:DateTimeAxis AxisLineOffset="1" IntervalType="Auto" ZoomFactor="3" RangePadding="Additional">
+                            <syncfusion:DateTimeAxis.Title>
+                            <syncfusion:ChartAxisTitle Text="Дата" TextColor="Black" />
+                        </syncfusion:DateTimeAxis.Title>
+                    </syncfusion:DateTimeAxis>
+                </syncfusion:SfCartesianChart.XAxes>
+                
+                <syncfusion:SfCartesianChart.YAxes>
+                    <syncfusion:NumericalAxis RangePadding="AppendInterval" >
+                        <syncfusion:NumericalAxis.Title>
+                            <syncfusion:ChartAxisTitle Text="Суммарня стоимость" TextColor="Black" />
+                        </syncfusion:NumericalAxis.Title>
+                    </syncfusion:NumericalAxis>
+                </syncfusion:SfCartesianChart.YAxes>
+                
+                <syncfusion:SfCartesianChart.Legend>
+                    <syncfusion:ChartLegend/>
+                </syncfusion:SfCartesianChart.Legend>
+                
+            </syncfusion:SfCartesianChart>
+            <sync:SfDataGrid 
+                x:Name="dataGrid"
+                Margin="10,5,10,0"
+                GridLinesVisibility="Both"
+                ColumnWidthMode="Fill"
+                HorizontalOptions="FillAndExpand"
+                HeaderGridLinesVisibility="Both"
+                HeightRequest="190"
+                AutoGenerateColumnsMode="None"
+
+                BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                DefaultStyle="{StaticResource DataGridMainStyle}"
+                >
+                <sync:SfDataGrid.Columns>
+                    <sync:DataGridTextColumn MappingName="Дата" HeaderText="Дата">
+                    </sync:DataGridTextColumn>
+                    <sync:DataGridTextColumn MappingName="Цена" HeaderText="Общая Стоимость" HeaderTextAlignment="Center" CellTextAlignment="Center">
+
+                    </sync:DataGridTextColumn>
+
+                </sync:SfDataGrid.Columns>
+            </sync:SfDataGrid>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <local:BackButton Clicked="ExportToExcel" Text="Экспорт в Excel" HorizontalOptions="EndAndExpand"/>
+            <local:BackButton Clicked="PopAsyncBack" HorizontalOptions="End"/>
+        </StackLayout>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
