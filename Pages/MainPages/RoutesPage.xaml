@@ -8,6 +8,55 @@
              NavigationPage.HasBackButton="False"
              Title="RoutesPage">
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <syncfusion:SfDataGrid 
+                x:Name="dataGrid"
+                GridLinesVisibility="Both"
+                ColumnWidthMode="Fill"
+                HorizontalOptions="FillAndExpand"
+                HeaderGridLinesVisibility="Both"
+                VerticalOptions="FillAndExpand"
+                RowHeight="60"
+                AutoGenerateColumnsMode="None"
+                GroupingMode="Single"
+                Margin="20,10,20,0"
+                SortingMode="Multiple"
+                
+                LiveDataUpdateMode="AllowDataShaping"
+                BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                DefaultStyle="{StaticResource DataGridMainStyle}"
+                
+                >
+
+                <syncfusion:SfDataGrid.Columns >
+
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="Дата" HeaderText="Дата Регистрации" ColumnWidthMode="FitByCell" HeaderPadding="0"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="Фиогражданина" HeaderText="ФИО Гражданина"  />
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="НомерПаспорта" HeaderText="Номер Паспорта" />
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="Модель" HeaderText="Модель Авто" CellPadding="0" />
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="ГосНомер" HeaderText="ГосНомер" CellPadding="0" />
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="Фиосотрудника" HeaderText="Сотрудник" ColumnWidthMode="FitByCell" CellPadding="0"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="Должность" HeaderText="Должность" ColumnWidthMode="Fill" CellPadding="2"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="Количество" HeaderText="Количество" ColumnWidthMode="FitByHeader" CellPadding="0" HeaderPadding="0"/>
+                    <syncfusion:DataGridTemplateColumn MappingName="Id" HeaderText="Подробнее" CellPadding="0" ColumnWidthMode="FitByHeader" >
+                        <syncfusion:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <local:DetailsRoutesButton HorizontalOptions="Center" VerticalOptions="Center" ID="{Binding Id}" FontSize="Micro" BorderColor="Transparent" Background="Transparent" />
+                            </DataTemplate>
+                        </syncfusion:DataGridTemplateColumn.CellTemplate>
+                    </syncfusion:DataGridTemplateColumn>
+
+                </syncfusion:SfDataGrid.Columns>
+
+
+            </syncfusion:SfDataGrid>
+            <Border HorizontalOptions="Fill" Margin="20,0,20,0" StrokeThickness="1" Stroke="{StaticResource BorderStorkeColor}" BackgroundColor="{StaticResource ElementsBackGroundColor}">
+            <StackLayout   VerticalOptions="End"  >
+                <local:BaseButton HorizontalOptions="Start" FontSize="Medium" Text="Зарегистрировать Перемещение" Clicked="AddRoute"/>
+            </StackLayout>
+            </Border>
+        </StackLayout>
+        
         <StackLayout>
             <local:BackButton ></local:BackButton>
         </StackLayout>

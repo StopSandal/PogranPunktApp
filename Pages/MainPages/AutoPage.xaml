@@ -8,8 +8,40 @@
              NavigationPage.HasBackButton="False"
              Title="AutoPage">
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+            <syncfusion:SfDataGrid 
+            x:Name="dataGrid"
+            GridLinesVisibility="Both"
+            ColumnWidthMode="Fill"
+            HorizontalOptions="FillAndExpand"
+            HeaderGridLinesVisibility="Both"
+            VerticalOptions="Fill"
+            SelectionMode="SingleDeselect"
+            SelectionChanged="SelectedRow"
+            LiveDataUpdateMode="Default"
+            SortingMode="Multiple"
+            AllowTriStateSorting="True"
+            Margin="20,10,80,0"
+            ClipToBounds="True"
+            
+            BackgroundColor="{StaticResource ElementsBackGroundColor}"
+            DefaultStyle="{StaticResource DataGridMainStyle}"
+            >
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn MappingName="Модель" HeaderText="Модель автомобиля">
+                        
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridTextColumn MappingName="ID" HeaderText="ID" Visible="False" />
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+
+        </StackLayout>
+        <StackLayout>
+            <Label x:Name="TestLabel"/>
+        </StackLayout>
         <StackLayout>
             <local:BackButton ></local:BackButton>
         </StackLayout>
+
     </StackLayout>
 </ContentPage>

@@ -27,26 +27,7 @@ namespace PogranPunktApp.UserInfo
             return true;
         }
 
-        /* Unmerged change from project 'PogranPunktApp (net7.0-android)'
-        Before:
-                public static void LoginUser(string UserName, string UserLogin ,Roles levelOfRules)
-        After:
-                public static void LoginUser(string UserName, string UserLogin, Roles levelOfRules)
-        */
-
-        /* Unmerged change from project 'PogranPunktApp (net7.0-windows10.0.19041.0)'
-        Before:
-                public static void LoginUser(string UserName, string UserLogin ,Roles levelOfRules)
-        After:
-                public static void LoginUser(string UserName, string UserLogin, Roles levelOfRules)
-        */
-
-        /* Unmerged change from project 'PogranPunktApp (net7.0-maccatalyst)'
-        Before:
-                public static void LoginUser(string UserName, string UserLogin ,Roles levelOfRules)
-        After:
-                public static void LoginUser(string UserName, string UserLogin, Roles levelOfRules)
-        */
+       
         public static void LoginUser(string UserName, string UserLogin, Roles levelOfRules)
         {
             m_UserLogin = UserLogin;

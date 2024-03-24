@@ -62,7 +62,7 @@ public partial class AutorizationPage : ContentPage
         if (CheckUser(loginEntry.Text, passwordEntry.Text))
         {
             await Navigation.PushAsync(new MainMenuPage());
-            //Application.Current.MainPage = PageSingleton<MainMenuPage>.getSingletonPage();
+
         }
         //Добавить логирование неудач входа 
     }

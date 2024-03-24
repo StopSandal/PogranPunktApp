@@ -15,12 +15,16 @@
             <Color x:Key="TextContrastColor">#ffffd7</Color>
             <Color x:Key="BorderStorkeColor">#c41e3a</Color>
             <syncfusion:DataGridStyle x:Key="DataGridMainStyle"
-   RowTextColor="Black"
-   HeaderRowTextColor="{StaticResource TextContrastColor}"
-   GridLineStrokeThickness="3"
-   GridLineColor="{StaticResource BorderStorkeColor}"
-   CurrentCellBorderColor="{StaticResource BorderStorkeColor}"
-   SelectedRowTextColor="Black"/>
+                RowTextColor="Black"
+                RowFontSize="12"
+                HeaderRowTextColor="{StaticResource TextContrastColor}"
+                GridLineStrokeThickness="3"
+                GridLineColor="{StaticResource BorderStorkeColor}"
+                CurrentCellBorderColor="{StaticResource BorderStorkeColor}"
+                SelectedRowTextColor="Black"
+                
+                                      />
+            
         </ResourceDictionary>
 
     </Application.Resources>

@@ -75,6 +75,7 @@
 		<PackageReference Include="Syncfusion.Maui.Charts" Version="24.2.9" />
 		<PackageReference Include="Syncfusion.Maui.DataGrid" Version="24.2.7" />
 		<PackageReference Include="Syncfusion.Maui.DataGridExport" Version="24.2.7" />
+		<PackageReference Include="Syncfusion.Maui.Inputs" Version="24.2.9" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -99,10 +100,16 @@
 	  <MauiXaml Update="Pages\MainPages\RoutesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\MainPages\SubPages\AddRoutesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\MainPages\SubPages\ColumnDiagramPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\MainPages\SubPages\LineDiagramPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MainPages\SubPages\MoreInfoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

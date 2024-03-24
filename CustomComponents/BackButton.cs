@@ -13,7 +13,7 @@ namespace PogranPunktApp.CustomComponents
             BorderWidth = 1;
             BorderColor = Colors.Black;
             Margin = new Thickness(20,20); 
-            FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label));// set Large
+            FontSize = 24;// set Large
             VerticalOptions = LayoutOptions.EndAndExpand;
             HorizontalOptions = LayoutOptions.End;
             Text = "Назад";

@@ -67,5 +67,23 @@ namespace PogranPunktApp.SQL
             }
 
         }
+
+        public static bool ChangeTable(string SQLQuery)
+        {
+            try
+            {
+                using (var connetion = new SqlConnection(DBInfo.ConnectionString))
+                {
+                    connetion.Open();
+
+                    (new SqlCommand(SQLQuery, connetion)).ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+        }
     }
 }
