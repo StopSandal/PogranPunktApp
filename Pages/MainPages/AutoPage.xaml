@@ -34,11 +34,11 @@
                     <syncfusion:DataGridTextColumn MappingName="ID" HeaderText="ID" Visible="False" />
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
-
+            <StackLayout Margin="0" Padding="5">
+                <Label Text="Для удаления шёлкните ЛКМ по записи и нажмите кнопку delete" TextColor="{StaticResource TextContrastColor}"/>
+            </StackLayout>
         </StackLayout>
-        <StackLayout>
-            <Label x:Name="TestLabel"/>
-        </StackLayout>
+       
         <StackLayout>
             <local:BackButton ></local:BackButton>
         </StackLayout>

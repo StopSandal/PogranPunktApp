@@ -17,7 +17,7 @@
                 HorizontalOptions="FillAndExpand"
                 HeaderGridLinesVisibility="Both"
                 VerticalOptions="Fill"
-                SelectionMode="SingleDeselect"
+                SelectionMode="Single"
                 AllowEditing="True"
                 
                 SortingMode="Multiple"
@@ -28,6 +28,8 @@
                 AutoGenerateColumnsMode="None"
                 BackgroundColor="{StaticResource ElementsBackGroundColor}"
                 DefaultStyle="{StaticResource DataGridMainStyle}"
+                CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                SelectionChanging="dataGrid_SelectionChanging"
                 >
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:DataGridTextColumn MappingName="ФИО" HeaderText="ФИО Гражданина">
@@ -42,7 +44,7 @@
                     <syncfusion:DataGridTextColumn MappingName="АдресПроживания" HeaderText="Адрес Проживания" HeaderTextAlignment="Center" CellTextAlignment="Center" >
 
                     </syncfusion:DataGridTextColumn>
-                    <syncfusion:DataGridComboBoxColumn MappingName="IdСтраны" HeaderTextAlignment="Center" CellTextAlignment="Center"   >
+                    <syncfusion:DataGridComboBoxColumn MappingName="Страна" HeaderTextAlignment="Center" CellTextAlignment="Center"    >
                   
                     </syncfusion:DataGridComboBoxColumn>
 
@@ -58,7 +60,6 @@
                     <Entry TextChanged="FilterByPassport" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="200"/>
                 </VerticalStackLayout>
 
-                <Button Text="Обновить" Clicked="RefreshDataGrid"/>
             </StackLayout>
 
         

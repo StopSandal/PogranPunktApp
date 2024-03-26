@@ -68,7 +68,7 @@ namespace PogranPunktApp.Extensions.Listeners
                     }
                     else
                     {
-                        await Application.Current.MainPage.DisplayAlert("Удаление", "Запись НЕ удалена. Что-то пошло не так", "Закрыть");
+                        await Application.Current.MainPage.DisplayAlert("Удаление", "Запись НЕ удалена. Невозможно удалить автомобиль, так как на него есть зарегистрированные перемещения", "Закрыть");
                     }
                 }
             }

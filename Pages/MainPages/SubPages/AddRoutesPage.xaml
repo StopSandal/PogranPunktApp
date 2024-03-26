@@ -9,50 +9,24 @@
              NavigationPage.HasBackButton="False"
              Title="AddRoutesPage">
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+
         <StackLayout HorizontalOptions="Fill">
-            <Label HorizontalTextAlignment="Center" FontSize="Large" Text="Гражданин" TextColor="{StaticResource TextContrastColor}"/>
-            <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
-                <StackLayout  HorizontalOptions="FillAndExpand">
-                    <Picker Title="Выберите Гражданина"/>
-                </StackLayout>
-                
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="ФИО"/>
-                    <Label Text=".............................................."/>
-                </StackLayout>
-                <StackLayout  HorizontalOptions="FillAndExpand">
-                    <Label Text="Номер Паспорта"/>
-                    <Label Text=".............................................."/>
-                </StackLayout>
-                <StackLayout  HorizontalOptions="FillAndExpand">
-                    <Label Text="Дата Рождения"/>
-                    <Label Text=".............................................."/>
-                </StackLayout>
-                <StackLayout  HorizontalOptions="FillAndExpand">
-                    <Label Text="Адрес Проживания"/>
-                    <Label Text=".............................................."/>
-                </StackLayout>
-                <StackLayout  HorizontalOptions="FillAndExpand">
-                    <Label Text="Страна"/>
-                    <Label Text=".............................................."/>
-                </StackLayout>
-            </StackLayout>
+            <Label HorizontalTextAlignment="Center" FontSize="Large" TextColor="{StaticResource TextContrastColor}" Text="Гражданин"/>
+            <syncfusion:SfComboBox  Margin="20,5" x:Name="CivilComboBox" Placeholder="Выберите Гржданина" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
+            <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:ГражданинСтраны" x:Name="CivilList" />
         </StackLayout>
-        
+
+        <StackLayout HorizontalOptions="Fill">
+            <Label HorizontalTextAlignment="Center" FontSize="Large" TextColor="{StaticResource TextContrastColor}" Text="Автомобиль"/>
+            <syncfusion:SfComboBox Margin="20,5" x:Name="AutoComboBox" Placeholder="Выберите Автомобиль" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
+            <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:АвтомобильМодель" x:Name="AutoList" />
+        </StackLayout>
         <StackLayout HorizontalOptions="Fill">
             <Label HorizontalTextAlignment="Center" FontSize="Large" TextColor="{StaticResource TextContrastColor}" Text="Сотрудник"/>
-            <syncfusion:SfComboBox x:Name="TestComboBox" Placeholder="Выберите Гражанина" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
-            <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:Гражданин" x:Name="AutoList" />
+            <syncfusion:SfComboBox  Margin="20,5" x:Name="EmployeeComboBox" Placeholder="Выберите Дежурного сотрудника" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
+            <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:ДежурныйСотрудник" x:Name="EmployeeList" />
         </StackLayout>
-        
-        <StackLayout HorizontalOptions="Fill">
-            <Label HorizontalTextAlignment="Center" FontSize="Large" TextColor="{StaticResource TextContrastColor}" Text="Сотрудник"/>
 
-            <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
-
-            </StackLayout>
-        </StackLayout>
-        
         <StackLayout HorizontalOptions="Fill">
             <local:BaseButton Clicked="InsertRow" Text="Зарегистрировать" HorizontalOptions="Start"></local:BaseButton>
             <local:BackButton></local:BackButton>

@@ -16,7 +16,6 @@ namespace PogranPunktApp.SQL.Tables
         public decimal Вес { get; set; }
 
         public decimal Стоимость { get; set; }
-
         public int Количество { get; set; }
         [DisplayName("Вид товара")]
         public string ВидПошлины { get; set; }
