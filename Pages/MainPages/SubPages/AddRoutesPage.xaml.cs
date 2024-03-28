@@ -4,6 +4,7 @@ using PogranPunktApp.SQL.Tables.FunctionAdapter;
 using PogranPunktApp.SQL.Tables.SubTable;
 using Syncfusion.Maui.Data;
 using Syncfusion.Maui.Inputs;
+using System.Text;
 
 namespace PogranPunktApp.Pages.MainPages.SubPages;
 
@@ -34,12 +35,32 @@ public partial class AddRoutesPage : ContentPage
 			await this.DisplayAlert("Ошибка", "Обязательно выберите Гражданина, Автомобиль и Сотрудника", "Закрыть");
 			return;
         }
-		bool DoThing = await this.DisplayAlert("Вы уверены", "Добавить Запись?", "Да", "Нет");
+        if (!GoodsCollection.IsItemsReadyToInsert())
+        {
+            await this.DisplayAlert("Ошибка", "Завершите добавление всех товаров или отмените незавершённые", "Закрыть");
+            return;
+        }
+
+        bool DoThing = await this.DisplayAlert("Вы уверены", "Добавить Запись?", "Да", "Нет");
 		if (DoThing)
 		{
-			DBQuery.ChangeTable($"declare @Temp INT exec @Temp = [dbo].ВернутьДежурствоСотрудника {сотрудник.ID} Insert into Перемещения values (@Temp,{гражданин.ID},{автомобиль.ID},GetDate())");
-			
-		}
+            StringBuilder SqlQuery = new StringBuilder();
+            SqlQuery.Append($"declare @Temp INT exec @Temp = [dbo].ВернутьДежурствоСотрудника {сотрудник.ID} Insert into Перемещения values (@Temp,{гражданин.ID},{автомобиль.ID},GetDate()) Set @Temp=SCOPE_IDENTITY()");
+            if (GoodsCollection.GetAllТовары().Any())
+            {
+
+                foreach (var item in GoodsCollection.GetAllТовары())
+                {
+                    SqlQuery.Append($" insert into Товары {ТоварыInsert.GetArgumentsInsertString()}  values ({item.GetInsertString()},@Temp) ");
+                } 
+            }
+           DoThing = DBQuery.ChangeTable(SqlQuery.ToString());
+            if(!DoThing)
+                await this.DisplayAlert("Ошибка", "Произошла внутренняя ошибка сервера", "Закрыть");
+            else
+                await this.DisplayAlert("Успех", "Перемещение успешно зарегистрировано", "Закрыть");
+
+        }
 
 	}
 	private void CheckSelectedItem(object sender, EventArgs e)

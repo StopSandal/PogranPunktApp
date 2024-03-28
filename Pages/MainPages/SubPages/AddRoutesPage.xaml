@@ -8,11 +8,12 @@
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
              Title="AddRoutesPage">
+    <ScrollView>
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
 
         <StackLayout HorizontalOptions="Fill">
             <Label HorizontalTextAlignment="Center" FontSize="Large" TextColor="{StaticResource TextContrastColor}" Text="Гражданин"/>
-            <syncfusion:SfComboBox  Margin="20,5" x:Name="CivilComboBox" Placeholder="Выберите Гржданина" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
+            <syncfusion:SfComboBox  Margin="20,5" x:Name="CivilComboBox" Placeholder="Выберите Гражданина" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
             <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:ГражданинСтраны" x:Name="CivilList" />
         </StackLayout>
 
@@ -26,6 +27,9 @@
             <syncfusion:SfComboBox  Margin="20,5" x:Name="EmployeeComboBox" Placeholder="Выберите Дежурного сотрудника" IsEditable="True" IsFilteringEnabled="True" TextSearchMode="Contains" MaxDropDownHeight="300" DisplayMemberPath="FilteringField" TextMemberPath="FilteringField" Completed="CheckSelectedItem" DropDownClosed="CheckSelectedItem" Unfocused="TestComboBox_Unfocused"/>
             <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:ДежурныйСотрудник" x:Name="EmployeeList" />
         </StackLayout>
+        <StackLayout>
+            <local:InputStackGoodsCollection x:Name="GoodsCollection" />
+        </StackLayout>
 
         <StackLayout HorizontalOptions="Fill">
             <local:BaseButton Clicked="InsertRow" Text="Зарегистрировать" HorizontalOptions="Start"></local:BaseButton>
@@ -33,4 +37,5 @@
         </StackLayout>
 
     </StackLayout>
+    </ScrollView>
 </ContentPage>

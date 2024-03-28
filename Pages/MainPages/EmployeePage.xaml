@@ -15,7 +15,7 @@
             HorizontalOptions="FillAndExpand"
             HeaderGridLinesVisibility="Both"
             VerticalOptions="Fill"
-            SelectionMode="SingleDeselect"
+            AllowEditing="False"
             LiveDataUpdateMode="Default"
             SortingMode="Multiple"
             AllowTriStateSorting="True"
@@ -24,14 +24,16 @@
             
             BackgroundColor="{StaticResource ElementsBackGroundColor}"
             DefaultStyle="{StaticResource DataGridMainStyle}">
-            
-        </syncfusion:SfDataGrid>
+                <syncfusion:SfDataGrid.Columns>
+
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
         <StackLayout>
             <StackLayout Orientation="Vertical" Margin="0,0,5,0">
                 <Label Text="Сотрудники" TextColor="{StaticResource TextContrastColor}" HorizontalTextAlignment="Center" FontSize="Large"/>
 
-                    <Button Padding="0" Text="Просмотреть список&#x0a;должностей" WidthRequest="170" HeightRequest="70"  BorderColor="Black" BackgroundColor="White" TextColor="Black" />
-                    <Button Margin="0,2,0,0" Padding="0,0,0,0" Text="Создать аккунты для&#x0a;незарегистрированных&#x0a;сотрудников" WidthRequest="170" HeightRequest="70" BorderColor="Black" BackgroundColor="White" TextColor="Black"/>
+                    <Button Clicked="OpenPositionPage" Padding="0" Text="Просмотреть список&#x0a;должностей" WidthRequest="170" HeightRequest="70"  BorderColor="Black" BackgroundColor="White" TextColor="Black" />
+                    <Button Clicked="RegistrationAllUnregisteredEmployees"  Margin="0,2,0,0" Padding="0,0,0,0" Text="Создать аккунты для&#x0a;незарегистрированных&#x0a;сотрудников" WidthRequest="170" HeightRequest="70" BorderColor="Black" BackgroundColor="White" TextColor="Black"/>
             </StackLayout>
                 <StackLayout Orientation="Vertical" Margin="0,0,5,0">
                     <Label Text="Дежурства" TextColor="{StaticResource TextContrastColor}" HorizontalTextAlignment="Center" FontSize="Large"/>

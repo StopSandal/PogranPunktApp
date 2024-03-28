@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
              x:Class="PogranPunktApp.CustomComponents.InputStackGoodsCollection">
     <ContentView.Content>
         <StackLayout>
+            <Label Text="Регистрация Товаров" FontSize="Header" TextColor="{StaticResource TextContrastColor}" HorizontalTextAlignment="Center"/>
             <StackLayout x:Name="ItemsStack" />
 
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="AddButton" Text="Добавить товар" Clicked="AddItem" />
-                <Label Text="Добавить товар" />
+            <StackLayout>
+                <local:BaseButton x:Name="AddButton" Text="Добавить товар" Clicked="AddItem" HorizontalOptions="Start" />
             </StackLayout>
         </StackLayout>
     </ContentView.Content>

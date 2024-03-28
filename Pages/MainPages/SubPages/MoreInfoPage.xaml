@@ -28,7 +28,7 @@
             </StackLayout>
         </StackLayout>
         <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Fill">
-                <Label HorizontalTextAlignment="Center" FontSize="Subtitle" TextColor="{StaticResource TextContrastColor}" Text="Товары"/>
+                <Label HorizontalTextAlignment="Center" FontSize="Large" TextColor="{StaticResource TextContrastColor}" Text="Товары"/>
                 <local:ClassProperyListLayout Orientation="Vertical" ItemOrientation="Horizontal" x:TypeArguments="tables:ТоварыПошлина" x:Name="Goods"/>
             </StackLayout>
         <StackLayout>
