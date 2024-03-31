@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             xmlns:sync="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             x:Class="PogranPunktApp.Pages.MainPages.SubPages.SchedulePage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout  VerticalOptions="FillAndExpand" Margin="20,10">
+            <sync:SfScheduler x:Name="scheduler" 
+                              View="Agenda"  
+                              VerticalOptions="FillAndExpand"
+                              ShowNavigationArrows="True"
+                              ShowBusyIndicator="True"
+                              
+                                
+                              BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                              >
+            </sync:SfScheduler>
+        </StackLayout>
+        <StackLayout>
+            <local:BackButton></local:BackButton>
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>

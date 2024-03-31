@@ -21,7 +21,7 @@ namespace PogranPunktApp
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF1cXmhJfU12Rn1Qdld5ZFdFallYTnNWSV9jS3pTdEdmWXpec3dTT2dVVg==");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF9cXGhJfU12Rn1Qdld5ZFdFallYTnNWSV9jS3pTdEdmWXpec3dTT2dVVg==");
             builder.ConfigureSyncfusionCore();
             return builder.Build();
         }

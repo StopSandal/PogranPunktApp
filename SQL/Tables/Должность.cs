@@ -9,7 +9,7 @@ namespace PogranPunktApp.SQL.Tables
 {
     internal class Должность : ITableExtract<Должность>
     {
-        public int Id { get; set; }
+        private int Id;
 
         public string Название { get; set; } 
         public double Коэффициент { get; set; }
@@ -20,6 +20,10 @@ namespace PogranPunktApp.SQL.Tables
             Название = Convert.ToString(row["Название"]);
             Коэффициент = Convert.ToDouble(row["Коэффициент"]);
             return this;
+        }
+        public int getID()
+        {
+            return Id;
         }
     }
 }

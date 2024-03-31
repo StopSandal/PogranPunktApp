@@ -1,3 +1,4 @@
+using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables;
 
@@ -23,11 +24,14 @@ public partial class EmployeePage : ContentPage
 	}
     private async void OpenPositionPage(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new PositionPage());
     }
     private void RegistrationAllUnregisteredEmployees(object sender, EventArgs e)
     {
-
+        
+    }
+    private async void OpenDutySchedule(object sender, EventArgs e) {
+        await Navigation.PushAsync(new SchedulePage());
     }
 }
 
