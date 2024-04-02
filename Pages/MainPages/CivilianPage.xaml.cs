@@ -1,6 +1,9 @@
 
+using PogranPunktApp.Extensions.Listeners;
 using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables;
+using PogranPunktApp.SQL.Tables.SubTable;
+using Syncfusion.Maui.Core.Internals;
 using Syncfusion.Maui.DataGrid;
 
 namespace PogranPunktApp.Pages.MainPages;
@@ -13,11 +16,15 @@ public partial class CivilianPage : ContentPage
 	private ГражданинСтраны tempRowBuffer = null;
 	private bool WasEdited = false;
 	private int SelectedRowNumber = -1;
+    CivilDeleteListener listener;
 
-	public CivilianPage()
+    public CivilianPage()
 	{
 		InitializeComponent();
-		
+
+        dataGrid.ClearKeyboardListeners();
+        listener = new CivilDeleteListener(-1, dataGrid);
+        dataGrid.AddKeyboardListener(listener);
 
         this.dataGrid.ItemsSource = new TableCollection<ГражданинСтраны>(DBQuery.getAllTable("select Гражданин.*, Название from Гражданин, Страны where ID_Страны=Страны.ID"));
 		(dataGrid.Columns["Страна"] as DataGridComboBoxColumn).ItemsSource = (new TableCollection<Страны>(DBQuery.getAllTable("select ID,Название from Страны"))).Select(x=>x.Название);
@@ -56,7 +63,7 @@ public partial class CivilianPage : ContentPage
 		if (tempRowBuffer is null)
 		{
 			SelectedRowNumber = (sender as SfDataGrid).SelectedIndex;
-			tempRowBuffer = new ГражданинСтраны((sender as SfDataGrid).CurrentRow as ГражданинСтраны); // can bug if row current wrong| to solve add setter in EndEditEvent
+			tempRowBuffer = new ГражданинСтраны((sender as SfDataGrid).CurrentRow as ГражданинСтраны); 
 			WasEdited = true;
 		}
     }
@@ -92,4 +99,11 @@ public partial class CivilianPage : ContentPage
 	{
 		return DBQuery.ChangeTable($"Update Гражданин Set {row.ToUpdateSetValuesString()}  where ID = {row.GetID()}"); // use buffer 
 	}
+    private void SelectedRow(object sender, EventArgs e)
+    {
+        if (dataGrid.SelectedRow != null && dataGrid.SelectedIndex > 0)
+        {
+            listener.SetID((dataGrid.SelectedRow as ГражданинСтраны).GetID());
+        }
+    }
 }

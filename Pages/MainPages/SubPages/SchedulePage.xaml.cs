@@ -27,6 +27,7 @@ public partial class SchedulePage : ContentPage
                 StartTime = item.ДатаНачалаДежурства,
                 EndTime = item.ДатаКонцаДежурства,
                 Subject = item.Фио + ' ' + item.ДатаРождения + ' ' + item.НазваниеДолжности,
+                IsAllDay = false,
                 Background = Color.FromHex(stringToHex(item.Фио, item.ДатаРождения))
             }); 
 

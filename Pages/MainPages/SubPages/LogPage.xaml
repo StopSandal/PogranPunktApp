@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             x:Class="PogranPunktApp.Pages.MainPages.SubPages.LogPage"
+             Title="LogPage">
+    <StackLayout>
+        <local:BaseButton HorizontalOptions="EndAndExpand" Text="Назад" Clicked="goBack"></local:BaseButton>
+    </StackLayout>
+</ContentPage>

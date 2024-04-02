@@ -1,15 +1,18 @@
+using PogranPunktApp.Extensions.Listeners;
 using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables;
+using Syncfusion.Maui.Core.Internals;
 
 namespace PogranPunktApp.Pages.MainPages;
 
 public partial class EmployeePage : ContentPage
 {
+    
 	public EmployeePage()
 	{
 		InitializeComponent();
-        
+
 
     }
 
@@ -26,28 +29,20 @@ public partial class EmployeePage : ContentPage
     {
         await Navigation.PushAsync(new PositionPage());
     }
-    private void RegistrationAllUnregisteredEmployees(object sender, EventArgs e)
+    private async void RegistrationAllUnregisteredEmployees(object sender, EventArgs e)
     {
+
         
+        int Count = (int)DBQuery.getAllTable("exec dbo.ЗарегистрироватьВсехСотрудников").Rows[0][0];
+        if(Count == 0)
+        {
+            await this.DisplayAlert("Регистрация аккаунтов", "Все сотрудники и так зарегистированы", "Закрыть");
+            return;
+        }
+          await this.DisplayAlert("Регистрация аккаунтов", $"Было зарегистрировано {Count} сотрудников", "Закрыть");
+          OnAppearing();
     }
     private async void OpenDutySchedule(object sender, EventArgs e) {
         await Navigation.PushAsync(new SchedulePage());
     }
 }
-
-/*    <VerticalStackLayout BackgroundColor="NavajoWhite" HorizontalOptions="CenterAndExpand">
-            <Label Text="Управление Сотрудниками"/>
-            <VerticalStackLayout BackgroundColor="Blue"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
-                <Label Text="Регистрация пользователей в таблице колонка"/>
-                <Label Text="Добавить Должность и изменить"  VerticalOptions="CenterAndExpand"/>
-                <Label Text="Просмотреть список сотрудников"  VerticalOptions="CenterAndExpand"/>
-            </VerticalStackLayout>
-        </VerticalStackLayout>
-        
-        <VerticalStackLayout BackgroundColor="Red" VerticalOptions="EndAndExpand">
-            <Label Text="График Дежурств"/>
-            <Label Text="График Отчёт"/>
-            <Label Text="Пормотреть"/>
-            
-            <Label Text="Просмотреть визулаьно для одного сотрудника???"/>
-        </VerticalStackLayout>*/

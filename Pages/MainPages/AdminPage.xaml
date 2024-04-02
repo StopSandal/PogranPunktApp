@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             x:Class="PogranPunktApp.Pages.MainPages.AdminPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <Label Text="Меню" TextColor="{StaticResource TextContrastColor}" FontSize="48" HorizontalTextAlignment="Center"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <local:BaseButton Clicked="OpenUserPage" HorizontalOptions="FillAndExpand" Text="Пользователи"/>
+            <local:BaseButton Clicked="OpenLogPage" HorizontalOptions="FillAndExpand" Text="Логи"/>
+            
+        </StackLayout>
+        
+        <local:BackButton/>
+    </StackLayout>
+</ContentPage>

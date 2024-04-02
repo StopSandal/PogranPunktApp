@@ -1,4 +1,5 @@
 
+using PogranPunktApp.Extensions.Reports;
 using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables.View;
@@ -7,6 +8,7 @@ namespace PogranPunktApp.Pages.MainPages;
 
 public partial class GoodsPage : ContentPage
 {
+
 	public GoodsPage()
 	{
 		InitializeComponent();
@@ -21,4 +23,8 @@ public partial class GoodsPage : ContentPage
 	{
         await Navigation.PushModalAsync(new LineDiagramPage());
     }
+	private void CreateYearReport(object sender, EventArgs e)
+	{
+		ТоварыYearReport.GenerateAllTimeReport(new TableCollection<ТоварыТаблица>(DBQuery.getAllTable("Select * from ТоварыПоПеремещениям order by Дата Desc")));
+	}
 }

@@ -13,6 +13,8 @@ public partial class MainMenuPage : ContentPage
     {
         base.OnAppearing();
         Unfocus();
+        if (UserInfo.UserInfo.LevelOfRules!=UserInfo.Roles.Admin)
+            LogAdminStack.IsVisible = false;
         userLoginLable.Text = "Пользователь: " + UserInfo.UserInfo.UserName;
         levelLable.Text = "Уровень доступа: " + UserInfo.RolesMethods.RolesToString(UserInfo.UserInfo.LevelOfRules);
     }
@@ -39,6 +41,10 @@ public partial class MainMenuPage : ContentPage
     private async void ToGoodsPage(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new GoodsPage());
+    }
+    private async void OpenAdminPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AdminPage());
     }
     private void OnButtonHover(object sender, EventArgs e)
     {

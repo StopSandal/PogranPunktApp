@@ -13,7 +13,7 @@ public partial class AutoPage : ContentPage
 	public AutoPage()
 	{
 		InitializeComponent();
-   //	dataGrid.AddGestureListener()
+ 
 	    
 		dataGrid.ClearKeyboardListeners();
 		listener = new AutomobileDeleteListener(-1,dataGrid);

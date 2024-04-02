@@ -3,6 +3,8 @@ using PogranPunktApp.SQL;
 using Syncfusion.Maui.Charts;
 using Syncfusion.Maui.DataGrid.Exporting;
 using PogranPunktApp.CustomComponents;
+using PogranPunktApp.Extensions.Reports;
+using PogranPunktApp.SQL.Tables.View;
 
 #if WINDOWS
 using PogranPunktApp.SupportClasses;
@@ -44,6 +46,7 @@ public partial class LineDiagramPage : ContentPage
     }
     private void ExportToExcel(object sender, EventArgs e)
     {
+
 #if WINDOWS
         DataGridExcelExportingController excelExport = new DataGridExcelExportingController();
         var excelEngine = excelExport.ExportToExcel(this.dataGrid);
@@ -100,6 +103,10 @@ public partial class LineDiagramPage : ContentPage
         YearLabel.Text = (Convert.ToInt32(YearLabel.Text) + 1).ToString();
         UpdateDataWithFilterOption(Table.Where(x => x.Дата.Year == Convert.ToInt32(YearLabel.Text)).ToList());
         FilterDiagram(YearButton, e);
+    }
+    private void SaveYearReport(object sender, EventArgs e)
+    {
+        ТоварыYearReport.GenerateYearTimeReport(new TableCollection<ТоварыТаблица>(DBQuery.getAllTable("Select * from ТоварыПоПеремещениям order by Дата Desc")), Convert.ToInt32(YearLabel.Text));
     }
 
 }

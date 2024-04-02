@@ -88,6 +88,7 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <local:BackButton Clicked="ExportToExcel" Text="Экспорт в Excel" HorizontalOptions="EndAndExpand"/>
+            <local:BackButton Clicked="SaveYearReport" Text="Сохранить Годовой Отчёт" HorizontalOptions="End"/>
             <local:BackButton Clicked="PopAsyncBack" HorizontalOptions="End"/>
         </StackLayout>
     </StackLayout>

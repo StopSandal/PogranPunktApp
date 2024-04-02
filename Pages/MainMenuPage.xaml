@@ -82,20 +82,20 @@
 
         </Grid>
         <StackLayout Margin="0" Padding="0" Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Fill">
-            <VerticalStackLayout Margin="5,10,0,0" HorizontalOptions="StartAndExpand">
-                <Image Source="log.png"  MaximumWidthRequest="100" MaximumHeightRequest="100"></Image>
-            </VerticalStackLayout>
-            <VerticalStackLayout Padding="0,0,0,0" Margin="0,30,10,0" HorizontalOptions="EndAndExpand">
-                    <Button  ImageSource="exit.png" Clicked="ExitButtonHandler" MaximumWidthRequest="100" MaximumHeightRequest="80" BackgroundColor="Transparent" BorderWidth="0"  >
-                        <Button.Shadow>
+                <VerticalStackLayout x:Name="LogAdminStack" Margin="5,10,0,0" HorizontalOptions="StartAndExpand">
+                    <ImageButton Source="log.png"  MaximumWidthRequest="100" MaximumHeightRequest="100" BackgroundColor="Transparent" Clicked="OpenAdminPage"></ImageButton>
+                </VerticalStackLayout>
+                <VerticalStackLayout Padding="0,0,0,0" Margin="0,30,10,0" HorizontalOptions="EndAndExpand">
+                    <ImageButton  Source="exit.png" Clicked="ExitButtonHandler" MaximumWidthRequest="100" MaximumHeightRequest="80" BackgroundColor="Transparent" BorderWidth="0"  >
+                        <ImageButton.Shadow>
                             <Shadow Brush="WhiteSmoke"
-                                    Offset="0,0"
+                                    Offset="0,2"
                                     Radius="15"
                                     Opacity="0.9"
                                     />
 
-                        </Button.Shadow>                    
-                    </Button>
+                        </ImageButton.Shadow>                    
+                    </ImageButton>
                 </VerticalStackLayout>
         </StackLayout>
     </VerticalStackLayout>

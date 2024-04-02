@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PogranPunktApp.SQL.Tables.View
 {
-    internal class ТоварыТаблица : ITableExtract<ТоварыТаблица>
+    public class ТоварыТаблица : ITableExtract<ТоварыТаблица>
     {
-        public DateTime? Дата { get; set; }
+        public DateTime Дата { get; set; }
 
         public string? ФиоГражданина { get; set; }
 
