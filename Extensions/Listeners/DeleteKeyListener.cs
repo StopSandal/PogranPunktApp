@@ -32,6 +32,7 @@ namespace PogranPunktApp.Extensions.Listeners
 
         public void OnKeyUp(KeyEventArgs args)
         {
+            
         }
         public void SetID(int id)
         {
@@ -53,6 +54,7 @@ namespace PogranPunktApp.Extensions.Listeners
                     if (choice)
                     {
                         await Application.Current.MainPage.DisplayAlert("Удаление", "Запись Успешно Удалена", "Закрыть");
+                        ID = -1;
                         return true;
                     }
                     else

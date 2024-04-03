@@ -28,6 +28,7 @@
           ShowSortNumbers="True"
           BackgroundColor="{StaticResource ElementsBackGroundColor}"
           DefaultStyle="{StaticResource DataGridMainStyle}"
+                    SelectionChanged="SelectedRow"
           >
                     <syncfusion:SfDataGrid.Columns>
                         <syncfusion:DataGridTextColumn HeaderText="Название вида транспорта" MappingName="Название"/>

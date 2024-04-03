@@ -7,12 +7,12 @@ namespace PogranPunktApp.Pages.MainPages.SubPages;
 
 public partial class CountriesPage : ContentPage
 {
-    CivilDeleteListener listener;
+    CountryDeleteListener listener;
     public CountriesPage()
 	{
 		InitializeComponent();
         dataGrid.ClearKeyboardListeners();
-        listener = new CivilDeleteListener(-1, dataGrid);
+        listener = new CountryDeleteListener(-1, dataGrid);
         dataGrid.AddKeyboardListener(listener);
         dataGrid.ItemsSource = new TableCollection<Страны>(DBQuery.getAllTable("Select * from Страны"));
 	}

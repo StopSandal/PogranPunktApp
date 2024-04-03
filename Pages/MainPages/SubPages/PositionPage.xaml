@@ -27,6 +27,7 @@
                  ShowSortNumbers="True"
                  BackgroundColor="{StaticResource ElementsBackGroundColor}"
                  DefaultStyle="{StaticResource DataGridMainStyle}"
+                    SelectionChanged="SelectedRow"
                  >
                     
                 </syncfusion:SfDataGrid>

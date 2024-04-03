@@ -1,4 +1,6 @@
-﻿using Syncfusion.Maui.Core.Internals;
+﻿using PogranPunktApp.SQL.Tables;
+using PogranPunktApp.SQL;
+using Syncfusion.Maui.Core.Internals;
 using Syncfusion.Maui.DataGrid;
 using System;
 using System.Collections.Generic;
@@ -14,9 +16,14 @@ namespace PogranPunktApp.Extensions.Listeners
         {
         }
 
-        public override void OnPreviewKeyDown(KeyEventArgs args)
+        public async override void OnPreviewKeyDown(KeyEventArgs args)
         {
-            throw new NotImplementedException();
+            if (args.Key == KeyboardKey.Delete)
+            {
+                args.Handled = true;
+                if (await OnDeleteAction("Пошлина", "Невозможно удалить вид товара, так как есть товары с данным видом."))
+                    GetGrid().ItemsSource = new TableCollection<Пошлина>(DBQuery.getAllTable("Select * from Пошлина"));
+            }
         }
     }
 }
