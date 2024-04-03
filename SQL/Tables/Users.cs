@@ -9,7 +9,7 @@ namespace PogranPunktApp.SQL.Tables
 {
     internal class Users : ITableExtract<Users>
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public string Login { get; set; } = null!;
 

@@ -4,25 +4,30 @@
              x:Class="PogranPunktApp.Pages.MainPages.CivilianPage"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             xmlns:InsertComp="clr-namespace:PogranPunktApp.CustomComponents.InsertItems"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
              >
 
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                
+            
             <syncfusion:SfDataGrid 
                 x:Name="dataGrid"
                 GridLinesVisibility="Both"
                 ColumnWidthMode="Fill"
                 HorizontalOptions="FillAndExpand"
                 HeaderGridLinesVisibility="Both"
-                VerticalOptions="Fill"
+                VerticalOptions="FillAndExpand"
                 SelectionMode="Single"
                 AllowEditing="True"
                 SelectionChanged="SelectedRow"
                 SortingMode="Multiple"
                 AllowTriStateSorting="True"
-                Margin="20,10,80,0"
+                Margin="20,10,20,0"
+                
                 ClipToBounds="True"
                 ShowSortNumbers="True"
                 AutoGenerateColumnsMode="None"
@@ -50,6 +55,22 @@
 
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
+                <StackLayout VerticalOptions="End">
+                    <Border 
+                           HorizontalOptions="Fill"
+                           Margin="20,0,20,0" 
+                           StrokeThickness="1" 
+                           Stroke="{StaticResource BorderStorkeColor}" 
+                           BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                           >
+
+                    
+                    <StackLayout>
+                        <local:BaseButton Text="Test"/>
+                    </StackLayout>
+                    </Border>
+                </StackLayout>
+            </StackLayout>
             <StackLayout>
                 <VerticalStackLayout>
                     <Label Text="Найти по ФИО" HorizontalTextAlignment="Center" TextColor="{StaticResource TextContrastColor}"/>
@@ -64,7 +85,7 @@
 
         
         </StackLayout>
-
+       
         <StackLayout>
             <local:BackButton ></local:BackButton>
         </StackLayout>

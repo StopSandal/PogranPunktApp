@@ -25,7 +25,6 @@ public partial class CivilianPage : ContentPage
         dataGrid.ClearKeyboardListeners();
         listener = new CivilDeleteListener(-1, dataGrid);
         dataGrid.AddKeyboardListener(listener);
-
         this.dataGrid.ItemsSource = new TableCollection<ГражданинСтраны>(DBQuery.getAllTable("select Гражданин.*, Название from Гражданин, Страны where ID_Страны=Страны.ID"));
 		(dataGrid.Columns["Страна"] as DataGridComboBoxColumn).ItemsSource = (new TableCollection<Страны>(DBQuery.getAllTable("select ID,Название from Страны"))).Select(x=>x.Название);
 
@@ -49,7 +48,9 @@ public partial class CivilianPage : ContentPage
 	}
 	private bool FilterByName(object record)
 	{
-		Гражданин item =  record as Гражданин;
+        ГражданинСтраны item =  record as ГражданинСтраны;
+		if (item is null)
+			return false;
 		return item.ФИО.StartsWith(tempNameFilterString,StringComparison.CurrentCultureIgnoreCase) 
 			   && item.НомерПаспорта.StartsWith(tempPassportFilterString, StringComparison.CurrentCultureIgnoreCase);
 	}

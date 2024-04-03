@@ -15,9 +15,9 @@
                 HorizontalOptions="FillAndExpand"
                 HeaderGridLinesVisibility="Both"
                 VerticalOptions="Fill"
-                SelectionMode="None"
+                SelectionMode="Single"
                 AllowEditing="True"
-                
+                SelectionChanged="SelectedRow"
                 SortingMode="Multiple"
                 AllowTriStateSorting="True"
                 Margin="20,10,80,0"

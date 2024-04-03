@@ -1,3 +1,4 @@
+
 using PogranPunktApp.Extensions.Listeners;
 using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
@@ -8,11 +9,13 @@ namespace PogranPunktApp.Pages.MainPages;
 
 public partial class EmployeePage : ContentPage
 {
-    
-	public EmployeePage()
+    EmployeeDeleteListener listener;
+    public EmployeePage()
 	{
 		InitializeComponent();
-
+        dataGrid.ClearKeyboardListeners();
+        listener = new EmployeeDeleteListener(-1, dataGrid);
+        dataGrid.AddKeyboardListener(listener);
 
     }
 
@@ -44,5 +47,12 @@ public partial class EmployeePage : ContentPage
     }
     private async void OpenDutySchedule(object sender, EventArgs e) {
         await Navigation.PushAsync(new SchedulePage());
+    }
+    private void SelectedRow(object sender, EventArgs e)
+    {
+        if (dataGrid.SelectedRow != null && dataGrid.SelectedIndex > 0)
+        {
+            listener.SetID((dataGrid.SelectedRow as ОтделКадровТаблица).getID());
+        }
     }
 }

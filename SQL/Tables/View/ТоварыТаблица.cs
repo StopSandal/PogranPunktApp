@@ -10,7 +10,7 @@ namespace PogranPunktApp.SQL.Tables.View
     public class ТоварыТаблица : ITableExtract<ТоварыТаблица>
     {
         public DateTime Дата { get; set; }
-
+        private int ID_Товара;
         public string? ФиоГражданина { get; set; }
 
         public string? МодельАвто { get; set; }
@@ -37,6 +37,7 @@ namespace PogranPunktApp.SQL.Tables.View
 
         public ТоварыТаблица ParseTableRow(DataRow row)
         {
+            ID_Товара = Convert.ToInt32(row["ID_Товара"]);
             Дата = Convert.ToDateTime(row["Дата"]);
             ФиоГражданина = Convert.ToString(row["ФИО_Гражданина"]);
             МодельАвто = Convert.ToString(row["МодельАвто"]);
@@ -51,6 +52,10 @@ namespace PogranPunktApp.SQL.Tables.View
             IdПеремещения = Convert.ToInt32(row["ID_Перемещения"]);
             GroupMark = "Дата : " + Дата.ToString() +" ФИО : "+ ФиоГражданина +" Автомобиль : "+ МодельАвто;
             return this;
+        }
+        public int GetGoodID()
+        {
+            return ID_Товара;
         }
     }
 }

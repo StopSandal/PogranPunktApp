@@ -21,11 +21,11 @@
                 GroupingMode="Single"
                 Margin="20,10,20,0"
                 SortingMode="Multiple"
-                
+                SelectionMode="Single"
                 LiveDataUpdateMode="AllowDataShaping"
                 BackgroundColor="{StaticResource ElementsBackGroundColor}"
                 DefaultStyle="{StaticResource DataGridMainStyle}"
-                
+                SelectionChanged="SelectedRow"
                 >
 
                 <syncfusion:SfDataGrid.Columns >

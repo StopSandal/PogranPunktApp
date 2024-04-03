@@ -8,20 +8,20 @@
              NavigationPage.HasBackButton="False"
              Title="AutoPage">
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
-        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand">
             <syncfusion:SfDataGrid 
             x:Name="dataGrid"
             GridLinesVisibility="Both"
             ColumnWidthMode="Fill"
             HorizontalOptions="FillAndExpand"
             HeaderGridLinesVisibility="Both"
-            VerticalOptions="Fill"
+            VerticalOptions="FillAndExpand"
             SelectionMode="SingleDeselect"
             SelectionChanged="SelectedRow"
             LiveDataUpdateMode="Default"
             SortingMode="Multiple"
             AllowTriStateSorting="True"
-            Margin="20,10,80,0"
+            Margin="20,10,20,0"
             ClipToBounds="True"
             
             BackgroundColor="{StaticResource ElementsBackGroundColor}"
@@ -34,9 +34,19 @@
                     <syncfusion:DataGridTextColumn MappingName="ID" HeaderText="ID" Visible="False" />
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
-            <StackLayout Margin="0" Padding="5">
-                <Label Text="Для удаления шёлкните ЛКМ по записи и нажмите кнопку delete" TextColor="{StaticResource TextContrastColor}"/>
-            </StackLayout>
+            <Border 
+       HorizontalOptions="Fill"
+       Margin="20,0,20,0" 
+       StrokeThickness="1" 
+       Stroke="{StaticResource BorderStorkeColor}" 
+       BackgroundColor="{StaticResource ElementsBackGroundColor}"
+       >
+
+
+                <StackLayout>
+                    <local:BaseButton Text="Test"/>
+                </StackLayout>
+            </Border>
         </StackLayout>
        
         <StackLayout>

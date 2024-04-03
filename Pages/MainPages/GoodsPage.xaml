@@ -27,6 +27,7 @@
                 GroupingMode="Single"
                 Margin="20,10,20,0"
                 SortingMode="None"
+                SelectionMode="Single"
                 ShowColumnWhenGrouped="False"
                 GroupCaptionTextFormat="{}{Key}"
                 LiveDataUpdateMode="AllowDataShaping"
@@ -34,7 +35,7 @@
                 DefaultStyle="{StaticResource DataGridMainStyle}"
                 AutoExpandGroups="True"
                 AllowGroupExpandCollapse="True"
-               
+                SelectionChanged="SelectedRow"
                 >
 
                 <syncfusion:SfDataGrid.SortComparers>

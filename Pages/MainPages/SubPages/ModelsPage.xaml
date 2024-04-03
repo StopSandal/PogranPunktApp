@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PogranPunktApp.Pages.MainPages.SubPages.ModelsPage"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             Title="ModelsPage">
+    <ScrollView>
+
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+            <Label Text="Список Должностей" HorizontalTextAlignment="Center" FontSize="36" TextColor="{StaticResource TextContrastColor}"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                <syncfusion:SfDataGrid 
+          x:Name="dataGrid"
+          GridLinesVisibility="Both"
+          ColumnWidthMode="Fill"
+          HorizontalOptions="FillAndExpand"
+          HeaderGridLinesVisibility="Both"
+          VerticalOptions="Fill"
+          SelectionMode="Single"
+          SortingMode="Multiple"
+          AllowTriStateSorting="True"
+          Margin="20,10,80,0"
+          ClipToBounds="True"
+          ShowSortNumbers="True"
+          BackgroundColor="{StaticResource ElementsBackGroundColor}"
+          DefaultStyle="{StaticResource DataGridMainStyle}"
+          >
+
+                </syncfusion:SfDataGrid>
+
+            </StackLayout>
+            <StackLayout>
+                <local:BackButton/>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>
