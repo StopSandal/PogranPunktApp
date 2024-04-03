@@ -8,7 +8,9 @@
              NavigationPage.HasBackButton="False"
              Title="AutoPage">
     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
-        <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
+            <StackLayout HorizontalOptions="FillAndExpand">
+
             <syncfusion:SfDataGrid 
             x:Name="dataGrid"
             GridLinesVisibility="Both"
@@ -41,14 +43,18 @@
        Stroke="{StaticResource BorderStorkeColor}" 
        BackgroundColor="{StaticResource ElementsBackGroundColor}"
        >
+           
 
-
-                <StackLayout>
+            <StackLayout>
                     <local:BaseButton Text="Test"/>
                 </StackLayout>
             </Border>
         </StackLayout>
-       
+
+            <StackLayout>
+                <local:BaseButton Text="Открыть виды&#x0a;транспорта" Clicked="OpenModelsPage"/>
+            </StackLayout>
+        </StackLayout>
         <StackLayout>
             <local:BackButton ></local:BackButton>
         </StackLayout>

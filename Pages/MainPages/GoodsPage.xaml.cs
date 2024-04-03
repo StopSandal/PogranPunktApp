@@ -41,4 +41,8 @@ public partial class GoodsPage : ContentPage
             listener.SetID((dataGrid.SelectedRow as ТоварыТаблица).GetGoodID());
         }
     }
+    private async void OpenGoodTypesPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new GoodTypesPage());
+    }
 }

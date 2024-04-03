@@ -3,6 +3,7 @@ using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables.SubTable;
 using Syncfusion.Maui.Core.Internals;
 using PogranPunktApp.Extensions.Listeners;
+using PogranPunktApp.Pages.MainPages.SubPages;
 
 namespace PogranPunktApp.Pages.MainPages;
 
@@ -31,5 +32,9 @@ public partial class AutoPage : ContentPage
 		if (dataGrid.SelectedRow != null && dataGrid.SelectedIndex>0) {
 			listener.SetID((dataGrid.SelectedRow as РасширениеАвтомобильМодель).ID);
 		}
+	}
+	private async void OpenModelsPage(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new ModelsPage());
 	}
 }

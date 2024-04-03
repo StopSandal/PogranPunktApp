@@ -80,6 +80,13 @@
                     <Label Text="Найти по Номеру Паспорта" HorizontalTextAlignment="Center" TextColor="{StaticResource TextContrastColor}"/>
                     <Entry TextChanged="FilterByPassport" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="200"/>
                 </VerticalStackLayout>
+                <StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="0,0,5,0">
+                        <Label Text="Страны" TextColor="{StaticResource TextContrastColor}" HorizontalTextAlignment="Center" FontSize="Large"/>
+
+                        <Button Padding="0" Text="Открыть список стран" WidthRequest="170" HeightRequest="70" LineBreakMode="WordWrap" Clicked="OpenCountriesPage" BorderColor="Black" BackgroundColor="White" TextColor="Black" />
+                   </StackLayout>
+                </StackLayout>
 
             </StackLayout>
 

@@ -10,25 +10,33 @@
     <ScrollView>
 
         <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
-            <Label Text="Список Должностей" HorizontalTextAlignment="Center" FontSize="36" TextColor="{StaticResource TextContrastColor}"/>
+            <Label Text="Список стран" HorizontalTextAlignment="Center" FontSize="36" TextColor="{StaticResource TextContrastColor}"/>
             <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
                 <syncfusion:SfDataGrid 
-          x:Name="dataGrid"
-          GridLinesVisibility="Both"
-          ColumnWidthMode="Fill"
-          HorizontalOptions="FillAndExpand"
-          HeaderGridLinesVisibility="Both"
-          VerticalOptions="Fill"
-          SelectionMode="Single"
-          SortingMode="Multiple"
-          AllowTriStateSorting="True"
-          Margin="20,10,80,0"
-          ClipToBounds="True"
-          ShowSortNumbers="True"
-          BackgroundColor="{StaticResource ElementsBackGroundColor}"
-          DefaultStyle="{StaticResource DataGridMainStyle}"
-          >
-
+                     x:Name="dataGrid"
+                     GridLinesVisibility="Both"
+                     ColumnWidthMode="Fill"
+                     HorizontalOptions="FillAndExpand"
+                     HeaderGridLinesVisibility="Both"
+                     VerticalOptions="Fill"
+                     SelectionMode="Single"
+                     SortingMode="Multiple"
+                     AutoGenerateColumnsMode="None"
+                     AllowTriStateSorting="True"
+                     Margin="20,10,80,0"
+                     ClipToBounds="True"
+                     ShowSortNumbers="True"
+                     BackgroundColor="{StaticResource ElementsBackGroundColor}"
+                     DefaultStyle="{StaticResource DataGridMainStyle}"
+                     SelectionChanged="SelectedRow"
+                    
+                               
+                                 
+                     >
+                    <syncfusion:SfDataGrid.Columns>
+                        <syncfusion:DataGridTextColumn HeaderText="Название страны" MappingName="Название"/>
+                       
+                    </syncfusion:SfDataGrid.Columns>
                 </syncfusion:SfDataGrid>
 
             </StackLayout>

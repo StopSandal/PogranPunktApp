@@ -10,7 +10,7 @@
     <ScrollView>
 
         <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
-            <Label Text="Список Должностей" HorizontalTextAlignment="Center" FontSize="36" TextColor="{StaticResource TextContrastColor}"/>
+            <Label Text="Список видов транспорта" HorizontalTextAlignment="Center" FontSize="36" TextColor="{StaticResource TextContrastColor}"/>
             <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
                 <syncfusion:SfDataGrid 
           x:Name="dataGrid"
@@ -22,13 +22,17 @@
           SelectionMode="Single"
           SortingMode="Multiple"
           AllowTriStateSorting="True"
+          AutoGenerateColumnsMode="None"
           Margin="20,10,80,0"
           ClipToBounds="True"
           ShowSortNumbers="True"
           BackgroundColor="{StaticResource ElementsBackGroundColor}"
           DefaultStyle="{StaticResource DataGridMainStyle}"
           >
-
+                    <syncfusion:SfDataGrid.Columns>
+                        <syncfusion:DataGridTextColumn HeaderText="Название вида транспорта" MappingName="Название"/>
+                       
+                    </syncfusion:SfDataGrid.Columns>
                 </syncfusion:SfDataGrid>
 
             </StackLayout>

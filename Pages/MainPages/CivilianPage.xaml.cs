@@ -1,5 +1,6 @@
 
 using PogranPunktApp.Extensions.Listeners;
+using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables;
 using PogranPunktApp.SQL.Tables.SubTable;
@@ -107,4 +108,8 @@ public partial class CivilianPage : ContentPage
             listener.SetID((dataGrid.SelectedRow as ГражданинСтраны).GetID());
         }
     }
+	private async void OpenCountriesPage(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new CountriesPage());
+	}
 }

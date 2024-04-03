@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace PogranPunktApp.SQL.Tables
 {
-    class Пошлина : ITableExtract<Пошлина>
+    internal class ВидыТранспорта : ITableExtract<ВидыТранспорта>    
     {
-        public int ID {  get; set; }
-        public string Название { get; set; }
-        public decimal Ставка {  get; set; }
+        public int ID { get; set; }
 
-        public Пошлина ParseTableRow(DataRow row)
+        public string Название { get; set; } = null!;
+
+        public ВидыТранспорта ParseTableRow(DataRow row)
         {
             ID = Convert.ToInt32(row["ID"]);
             Название = Convert.ToString(row["Название"]);
-            Ставка = Convert.ToDecimal(row["Ставка"]);
             return this;
         }
     }
