@@ -3,13 +3,18 @@ using PogranPunktApp.Extensions.Listeners;
 using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
 using PogranPunktApp.SQL.Tables;
+using PogranPunktApp.SQL.Tables.SubTable;
 using Syncfusion.Maui.Core.Internals;
+using Syncfusion.Maui.DataGrid;
 
 namespace PogranPunktApp.Pages.MainPages;
 
 public partial class EmployeePage : ContentPage
 {
     EmployeeDeleteListener listener;
+    private ОтделКадровТаблица tempRowBuffer = null;
+    private bool WasEdited = false;
+    private int SelectedRowNumber = -1;
     public EmployeePage()
 	{
 		InitializeComponent();
@@ -22,6 +27,8 @@ public partial class EmployeePage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        (dataGrid.Columns["НазваниеДолжности"] as DataGridComboBoxColumn).ItemsSource = (new TableCollection<Должность>(DBQuery.getAllTable("select * from Должность"))).Select(x => x.Название);
+
         dataGrid.ItemsSource = new TableCollection<ОтделКадровТаблица>(DBQuery.getAllTable("select * from ОтделКадровТаблица"));
     }
     private async void Back(object sender, EventArgs e)
@@ -54,5 +61,46 @@ public partial class EmployeePage : ContentPage
         {
             listener.SetID((dataGrid.SelectedRow as ОтделКадровТаблица).getID());
         }
+    }
+    private void dataGrid_CurrentCellBeginEdit(object sender, DataGridCurrentCellBeginEditEventArgs e)
+    {
+        if (tempRowBuffer is null)
+        {
+            SelectedRowNumber = (sender as SfDataGrid).SelectedIndex;
+            tempRowBuffer = new ОтделКадровТаблица((sender as SfDataGrid).CurrentRow as ОтделКадровТаблица);
+            WasEdited = true;
+        }
+    }
+
+
+    private async void dataGrid_SelectionChanging(object sender, DataGridSelectionChangingEventArgs e)
+    {
+        if (WasEdited)
+        {
+            var TempRow = (sender as SfDataGrid).SelectedRow as ОтделКадровТаблица;
+
+            if (!TempRow.Equals(tempRowBuffer))
+            {
+                bool choice = await Application.Current.MainPage.DisplayAlert("Вы точно хотите применить изменения записи?", $"Внимание!\nСтарые Данные \n{tempRowBuffer}\n\n\nНовые Данные \n{TempRow}", "Да", "Нет");
+                if (choice)
+                {
+                    UpdateRow(TempRow);
+                    this.dataGrid.ItemsSource = new TableCollection<ОтделКадровТаблица>(DBQuery.getAllTable("select * from ОтделКадровТаблица"));
+                    tempRowBuffer = null;
+                }
+                else
+                {
+                    (sender as SfDataGrid).SelectedIndex = SelectedRowNumber;
+                    e.Cancel = true;
+                    return;
+                }
+            }
+        }
+        WasEdited = false;
+        tempRowBuffer = null;
+    }
+    private bool UpdateRow(ОтделКадровТаблица row)
+    {
+        return DBQuery.ChangeTable($"Update Сотрудники Set {row.ToUpdateSetValuesString()}  where ID = {row.getID()}");
     }
 }

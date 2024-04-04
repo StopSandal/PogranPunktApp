@@ -13,7 +13,7 @@ namespace PogranPunktApp.SQL.Tables
         private int Id;
 
         public string Фио { get; set; }
-        public DateTime? ДатаРождения { get; set; }
+        public DateTime ДатаРождения { get; set; }
 
         public DateTime ДатаПоступления { get; set; }
 
@@ -24,6 +24,20 @@ namespace PogranPunktApp.SQL.Tables
 
         public string СменаПароля { get; set; }
 
+        public ОтделКадровТаблица()
+        {
+        }
+        public ОтделКадровТаблица(ОтделКадровТаблица other)
+        {
+            this.Id = other.Id;
+            this.Фио = other.Фио;
+            this.ДатаРождения = other.ДатаРождения; 
+            this.ДатаПоступления = other.ДатаПоступления;
+            this.IdДолжности = other.IdДолжности;
+            this.НазваниеДолжности = other.НазваниеДолжности;
+            this.Аккаунт = other.Аккаунт;
+            this.СменаПароля = other.СменаПароля;
+        }
         public ОтделКадровТаблица ParseTableRow(DataRow row)
         {
             Id = Convert.ToInt32(row["ID"]);
@@ -45,7 +59,31 @@ namespace PogranPunktApp.SQL.Tables
             return IdДолжности;
 
         }
- 
+
+        public override bool Equals(object obj)
+        {
+            return obj is ОтделКадровТаблица таблица &&
+                   Фио == таблица.Фио &&
+                   ДатаРождения == таблица.ДатаРождения &&
+                   ДатаПоступления == таблица.ДатаПоступления &&
+                   НазваниеДолжности == таблица.НазваниеДолжности;
+        }
+        public string ToUpdateSetValuesString()
+        {
+            return $"ФИО='{Фио}', " +
+                   $"Дата_Рождения='{ДатаРождения.ToString("yyyy-MM-dd")}', " + // Handle nullable date
+                   $"Дата_Поступления='{ДатаПоступления.ToString("yyyy-MM-dd")}', " +
+                   $"ID_Должности={IdДолжности}";
+        }
+        public override string ToString()
+        {
+            return $"ID: {Id}, " +
+                   $"ФИО: {Фио}, " +
+                   $"Дата Рождения: {ДатаРождения.ToString("yyyy-MM-dd")}, " + // Handle nullable date
+                   $"Дата Поступления: {ДатаПоступления.ToString("yyyy-MM-dd")}, " +
+                   $"Название Должности: {НазваниеДолжности}" ;
+        }
+
     }
 
 }

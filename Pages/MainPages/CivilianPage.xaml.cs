@@ -30,7 +30,11 @@ public partial class CivilianPage : ContentPage
 		(dataGrid.Columns["Страна"] as DataGridComboBoxColumn).ItemsSource = (new TableCollection<Страны>(DBQuery.getAllTable("select ID,Название from Страны"))).Select(x=>x.Название);
 
     }
-	private void FilterByName(object sender,EventArgs e)
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
+    private void FilterByName(object sender,EventArgs e)
 	{
         tempNameFilterString = ((Entry)sender).Text;
 		FilterTable(sender, e);

@@ -18,23 +18,27 @@
             HorizontalOptions="FillAndExpand"
             HeaderGridLinesVisibility="Both"
             VerticalOptions="FillAndExpand"
-            SelectionMode="SingleDeselect"
+            SelectionMode="Single"
             SelectionChanged="SelectedRow"
             LiveDataUpdateMode="Default"
             SortingMode="Multiple"
             AllowTriStateSorting="True"
             Margin="20,10,20,0"
             ClipToBounds="True"
-            
+            AllowEditing="True"
             BackgroundColor="{StaticResource ElementsBackGroundColor}"
             DefaultStyle="{StaticResource DataGridMainStyle}"
+                
+                CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                SelectionChanging="dataGrid_SelectionChanging"
             >
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:DataGridTextColumn MappingName="Модель" HeaderText="Модель автомобиля">
                         
                     </syncfusion:DataGridTextColumn>
                     <syncfusion:DataGridTextColumn MappingName="ID" HeaderText="ID" Visible="False" />
-                </syncfusion:SfDataGrid.Columns>
+                        <syncfusion:DataGridComboBoxColumn MappingName="ВидТранспорта"/>
+                    </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
             <Border 
        HorizontalOptions="Fill"

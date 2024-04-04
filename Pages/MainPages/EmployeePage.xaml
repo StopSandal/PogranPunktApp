@@ -16,26 +16,27 @@
             HorizontalOptions="FillAndExpand"
             HeaderGridLinesVisibility="Both"
             VerticalOptions="FillAndExpand"
-            AllowEditing="False"
             LiveDataUpdateMode="Default"
             SortingMode="Multiple"
             SelectionMode="Single"
             AllowTriStateSorting="True"
-            Margin="20,10,20,0"
+            AllowEditing="True"
+                    Margin="20,10,20,0"
             ClipToBounds="True"
             AutoGenerateColumnsMode="None"
             RowHeight="60"
             SelectionChanged="SelectedRow"
-                    
+                               CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                               SelectionChanging="dataGrid_SelectionChanging"
             BackgroundColor="{StaticResource ElementsBackGroundColor}"
             DefaultStyle="{StaticResource DataGridMainStyle}">
                 <syncfusion:SfDataGrid.Columns>
                     <syncfusion:DataGridTextColumn MappingName="Фио" HeaderText="ФИО Сотрудника"/>
                     <syncfusion:DataGridDateColumn ColumnWidthMode="FitByCell" MappingName="ДатаРождения" HeaderText="Дата рождения"/>
                     <syncfusion:DataGridDateColumn ColumnWidthMode="FitByCell" MappingName="ДатаПоступления" HeaderText="Дата поступления"/>
-                    <syncfusion:DataGridTextColumn MappingName="НазваниеДолжности" HeaderText="Должность"/>
-                    <syncfusion:DataGridTextColumn ColumnWidthMode="FitByHeader" CellTextAlignment="Center" MappingName="Аккаунт" HeaderText="Аккаунт"/>
-                    <syncfusion:DataGridTextColumn ColumnWidthMode="FitByHeader" CellTextAlignment="Center" MappingName="СменаПароля" HeaderText="Сменен пароль"/>
+                        <syncfusion:DataGridComboBoxColumn MappingName="НазваниеДолжности" HeaderText="Должность" IsEditableMode="True" SuggestionMode="Contains" />
+                    <syncfusion:DataGridTextColumn AllowEditing="False" ColumnWidthMode="FitByHeader" CellTextAlignment="Center" MappingName="Аккаунт" HeaderText="Аккаунт"/>
+                        <syncfusion:DataGridTextColumn AllowEditing="False" ColumnWidthMode="FitByHeader" CellTextAlignment="Center" MappingName="СменаПароля" HeaderText="Сменен пароль"/>
 
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
