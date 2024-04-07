@@ -21,6 +21,7 @@
           VerticalOptions="Fill"
           SelectionMode="Single"
           SortingMode="Multiple"
+                    AllowEditing="True"
           AllowTriStateSorting="True"
           AutoGenerateColumnsMode="None"
           Margin="20,10,80,0"
@@ -29,6 +30,8 @@
           BackgroundColor="{StaticResource ElementsBackGroundColor}"
           DefaultStyle="{StaticResource DataGridMainStyle}"
                     SelectionChanged="SelectedRow"
+                    CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                    SelectionChanging="dataGrid_SelectionChanging"
           >
                     <syncfusion:SfDataGrid.Columns>
                         <syncfusion:DataGridTextColumn HeaderText="Название вида транспорта" MappingName="Название"/>

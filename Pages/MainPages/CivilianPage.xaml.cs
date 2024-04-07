@@ -26,13 +26,14 @@ public partial class CivilianPage : ContentPage
         dataGrid.ClearKeyboardListeners();
         listener = new CivilDeleteListener(-1, dataGrid);
         dataGrid.AddKeyboardListener(listener);
-        this.dataGrid.ItemsSource = new TableCollection<ГражданинСтраны>(DBQuery.getAllTable("select Гражданин.*, Название from Гражданин, Страны where ID_Страны=Страны.ID"));
-		(dataGrid.Columns["Страна"] as DataGridComboBoxColumn).ItemsSource = (new TableCollection<Страны>(DBQuery.getAllTable("select ID,Название from Страны"))).Select(x=>x.Название);
-
+     
     }
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        this.dataGrid.ItemsSource = new TableCollection<ГражданинСтраны>(DBQuery.getAllTable("select Гражданин.*, Название from Гражданин, Страны where ID_Страны=Страны.ID"));
+        (dataGrid.Columns["Страна"] as DataGridComboBoxColumn).ItemsSource = (new TableCollection<Страны>(DBQuery.getAllTable("select ID,Название from Страны"))).Select(x => x.Название);
+
     }
     private void FilterByName(object sender,EventArgs e)
 	{

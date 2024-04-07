@@ -30,12 +30,13 @@
                 SelectionMode="Single"
                 ShowColumnWhenGrouped="False"
                 GroupCaptionTextFormat="{}{Key}"
-                LiveDataUpdateMode="AllowDataShaping"
                 BackgroundColor="{StaticResource ElementsBackGroundColor}"
                 DefaultStyle="{StaticResource DataGridMainStyle}"
                 AutoExpandGroups="True"
                 AllowGroupExpandCollapse="True"
                 SelectionChanged="SelectedRow"
+                CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                SelectionChanging="dataGrid_SelectionChanging"
                 >
 
                 <syncfusion:SfDataGrid.SortComparers>
@@ -47,15 +48,13 @@
                 <syncfusion:SfDataGrid.Columns>
 
                     <syncfusion:DataGridTextColumn MappingName="GroupMark" HeaderText="Группирование"  GroupMode="Display"/>
-                    <syncfusion:DataGridTextColumn MappingName="Название" HeaderText="Название" ColumnWidthMode="FitByCell"/>
-                    <syncfusion:DataGridTextColumn MappingName="Количество" HeaderText="Количество"/>
+                    <syncfusion:DataGridTextColumn AllowEditing="True" MappingName="Название" HeaderText="Название" ColumnWidthMode="FitByCell"/>
+                    <syncfusion:DataGridTextColumn AllowEditing="True" MappingName="Количество" HeaderText="Количество"/>
+                    <syncfusion:DataGridTextColumn AllowEditing="True" MappingName="Вес" HeaderText="Вес"/>
+                    <syncfusion:DataGridTextColumn AllowEditing="True" MappingName="Стоимость" HeaderText="Стоимость"/>
                     <syncfusion:DataGridTextColumn MappingName="ОбщаяСумма" HeaderText="Общая Сумма"/>
                     <syncfusion:DataGridTextColumn MappingName="СуммаПошлины" HeaderText="Сумма Пошлины"/>
-                   
-
-                    <syncfusion:DataGridTextColumn MappingName="Вес" HeaderText="Вес"/>
-                    <syncfusion:DataGridTextColumn MappingName="Стоимость" HeaderText="Стоимость"/>
-                    <syncfusion:DataGridTextColumn MappingName="ВидПошлины" HeaderText="Группа Товаров"/>
+                    <syncfusion:DataGridComboBoxColumn AllowEditing="True" MappingName="ВидПошлины" HeaderText="Группа Товаров"/>
                     <syncfusion:DataGridTextColumn MappingName="Ставка" HeaderText="Ставка,%"/>
                 </syncfusion:SfDataGrid.Columns>
 

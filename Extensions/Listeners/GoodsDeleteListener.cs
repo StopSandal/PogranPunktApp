@@ -19,10 +19,13 @@ namespace PogranPunktApp.Extensions.Listeners
 
         public async override void OnPreviewKeyDown(KeyEventArgs args)
         {
-            args.Handled = true;
-            if (await OnDeleteAction("Товары", "Произошла ошибка сервера. Попробуйте позже"))
-                GetGrid().ItemsSource = new TableCollection<ТоварыТаблица>(DBQuery.getAllTable("Select * from ТоварыПоПеремещениям order by Дата Desc"));
+            if (args.Key == KeyboardKey.Delete)
+            {
+                args.Handled = true;
 
+                if (await OnDeleteAction("Товары", "Произошла ошибка сервера. Попробуйте позже"))
+                    GetGrid().ItemsSource = new TableCollection<ТоварыТаблица>(DBQuery.getAllTable("Select * from ТоварыПоПеремещениям order by Дата Desc"));
+            }
         }
     }
 }

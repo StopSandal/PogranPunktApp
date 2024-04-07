@@ -22,6 +22,7 @@
               SelectionMode="Single"
               SortingMode="Multiple"
               AutoGenerateColumnsMode="None"
+                    AllowEditing="True"
               AllowTriStateSorting="True"
               Margin="20,10,80,0"
               ClipToBounds="True"
@@ -29,6 +30,8 @@
               BackgroundColor="{StaticResource ElementsBackGroundColor}"
               DefaultStyle="{StaticResource DataGridMainStyle}"
                     SelectionChanged="SelectedRow"
+                    CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                    SelectionChanging="dataGrid_SelectionChanging"
               >
                     <syncfusion:SfDataGrid.Columns>
                         <syncfusion:DataGridTextColumn HeaderText="Вид товара" MappingName="Название"/>

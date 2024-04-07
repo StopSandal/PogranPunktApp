@@ -29,8 +29,9 @@
                      BackgroundColor="{StaticResource ElementsBackGroundColor}"
                      DefaultStyle="{StaticResource DataGridMainStyle}"
                      SelectionChanged="SelectedRow"
-                    
-                               
+                     CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+                     SelectionChanging="dataGrid_SelectionChanging"
+                     AllowEditing="True"          
                                  
                      >
                     <syncfusion:SfDataGrid.Columns>
