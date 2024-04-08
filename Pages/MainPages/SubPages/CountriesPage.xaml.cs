@@ -50,7 +50,7 @@ public partial class CountriesPage : ContentPage
                 if (choice)
                 {
                     UpdateRow(TempRow);
-                    this.dataGrid.ItemsSource = new TableCollection<Страны>(DBQuery.getAllTable("Select * from Страны"));
+                    UpdateTable(sender, e);
                     tempRowBuffer = null;
                 }
                 else
@@ -67,5 +67,9 @@ public partial class CountriesPage : ContentPage
     private bool UpdateRow(Страны row)
     {
         return DBQuery.ChangeTable($"Update Страны Set {row.ToUpdateSetValuesString()}  where ID = {row.ID}"); // use buffer 
+    }
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<Страны>(DBQuery.getAllTable("Select * from Страны"));
     }
 }

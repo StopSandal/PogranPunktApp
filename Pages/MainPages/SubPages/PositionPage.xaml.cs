@@ -68,4 +68,8 @@ public partial class PositionPage : ContentPage
     {
         return DBQuery.ChangeTable($"Update Должность Set {row.ToUpdateSetValuesString()}  where ID = {row.getId()}"); // use buffer 
     }
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<Должность>(DBQuery.getAllTable("Select * from Должность"));
+    }
 }

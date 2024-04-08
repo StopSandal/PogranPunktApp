@@ -68,4 +68,8 @@ public partial class GoodTypesPage : ContentPage
     {
         return DBQuery.ChangeTable($"Update Пошлина Set {row.ToUpdateSetValuesString()}  where ID = {row.ID}"); // use buffer 
     }
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<Пошлина>(DBQuery.getAllTable("Select * from Пошлина"));
+    }
 }

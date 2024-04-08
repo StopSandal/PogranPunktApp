@@ -22,7 +22,7 @@
                  SelectionMode="Single"
                  SortingMode="Multiple"
                  AllowTriStateSorting="True"
-                 Margin="20,10,80,0"
+                 Margin="20,10,20,0"
                  ClipToBounds="True"
                  ShowSortNumbers="True"
                  BackgroundColor="{StaticResource ElementsBackGroundColor}"
@@ -36,6 +36,7 @@
                 </syncfusion:SfDataGrid>
                
             </StackLayout>
+            <local:PositionInsertLayout OnInserted="UpdateTable"/>
             <StackLayout>
                 <local:BackButton/>
             </StackLayout>

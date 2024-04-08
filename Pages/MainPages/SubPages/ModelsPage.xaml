@@ -24,7 +24,7 @@
                     AllowEditing="True"
           AllowTriStateSorting="True"
           AutoGenerateColumnsMode="None"
-          Margin="20,10,80,0"
+          Margin="20,10,20,0"
           ClipToBounds="True"
           ShowSortNumbers="True"
           BackgroundColor="{StaticResource ElementsBackGroundColor}"
@@ -38,8 +38,9 @@
                        
                     </syncfusion:SfDataGrid.Columns>
                 </syncfusion:SfDataGrid>
-
+            
             </StackLayout>
+            <local:ModelsInsertLayout OnInserted="UpdateTable"/>
             <StackLayout>
                 <local:BackButton/>
             </StackLayout>

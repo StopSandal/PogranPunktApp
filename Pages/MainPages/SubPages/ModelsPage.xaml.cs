@@ -68,4 +68,8 @@ public partial class ModelsPage : ContentPage
     {
         return DBQuery.ChangeTable($"Update ВидыТранспорта Set {row.ToUpdateSetValuesString()}  where ID = {row.ID}"); // use buffer 
     }
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<Страны>(DBQuery.getAllTable("Select * from ВидыТранспорта"));
+    }
 }

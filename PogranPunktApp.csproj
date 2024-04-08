@@ -81,13 +81,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="CustomComponents\CivilianInsertLayout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomComponents\CountryInsertLayout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomComponents\GoodTypesInsertLayout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CustomComponents\InputStackGoodsCollection.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CustomComponents\InsertItemLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="CustomComponents\InsertItems\InsertStackLayout.xaml">
+	  <MauiXaml Update="CustomComponents\ModelsInsertLayout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomComponents\PositionInsertLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\AutorizationPage.xaml">
