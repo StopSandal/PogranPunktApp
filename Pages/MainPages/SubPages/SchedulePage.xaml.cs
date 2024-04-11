@@ -19,7 +19,7 @@ public partial class SchedulePage : ContentPage
     {
         var appointment = new ObservableCollection<SchedulerAppointment>();
 
-        var list = new TableCollection<ДежурныйСотрудник>(DBQuery.getAllTable($"Select Дежурства.ID,ФИО,Дата_Рождения,Название,ДатаВремя_Конца,ДатаВремя_Начала from Дежурства,Сотрудники,Должность where  Сотрудники.ID=Дежурства.ID_Сотрудника and ID_Должности=Должность.ID"));
+        var list = new TableCollection<ДежурныйСотрудник>(DBQuery.getAllTable($"Select Дежурства.ID,ФИО,Дата_Рождения,Название,ДатаВремя_Конца,ДатаВремя_Начала,Сотрудники.ID as 'ID_Сотрудника' from Дежурства,Сотрудники,Должность where  Сотрудники.ID=Дежурства.ID_Сотрудника and ID_Должности=Должность.ID"));
         foreach(var item in list)
         {
             appointment.Add(new SchedulerAppointment()

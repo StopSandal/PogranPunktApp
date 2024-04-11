@@ -13,11 +13,16 @@ public partial class LogPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-		dataGrid.ItemsSource = new TableCollection<ГражданинLog>(DBQuery.getAllTable("Select * from ГражданинLog"));
+        UpdateTable(null, null);
     }
 
     private async void goBack(object sender, EventArgs e)
 	{
 		await Navigation.PopModalAsync();
 	}
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<ГражданинLog>(DBQuery.getAllTable("Select ГражданинLog.*,Страны.Название from ГражданинLog, Страны where ID_Страны=Страны.ID"));
+
+    }
 }

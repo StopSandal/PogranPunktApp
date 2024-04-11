@@ -55,6 +55,10 @@ public partial class EmployeePage : ContentPage
     private async void OpenDutySchedule(object sender, EventArgs e) {
         await Navigation.PushAsync(new SchedulePage());
     }
+    private async void OpenTableSchedule(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ScheduleTablePage());
+    }
     private void SelectedRow(object sender, EventArgs e)
     {
         if (dataGrid.SelectedRow != null && dataGrid.SelectedIndex > 0)

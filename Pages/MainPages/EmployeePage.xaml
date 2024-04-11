@@ -52,7 +52,9 @@
                 <StackLayout Orientation="Vertical" Margin="0,0,5,0">
                     <Label Text="Дежурства" TextColor="{StaticResource TextContrastColor}" HorizontalTextAlignment="Center" FontSize="Large"/>
                     <Button Clicked="OpenDutySchedule" Margin="0,2,0,0" Padding="0" Text="Открыть график&#x0a;дежурств" WidthRequest="170" HeightRequest="70" LineBreakMode="WordWrap" BorderColor="Black" BackgroundColor="White" TextColor="Black"/>
+                    <Button Clicked="OpenTableSchedule" Margin="0,2,0,0" Padding="0" Text="Изменить график&#x0a;дежурств" WidthRequest="170" HeightRequest="70" LineBreakMode="WordWrap" BorderColor="Black" BackgroundColor="White" TextColor="Black"/>
                 </StackLayout>
+            
             </StackLayout>
         </StackLayout>
         <StackLayout HorizontalOptions="Fill">

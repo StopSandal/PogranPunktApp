@@ -4,7 +4,6 @@
              x:Class="PogranPunktApp.Pages.MainPages.CivilianPage"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
-             xmlns:InsertComp="clr-namespace:PogranPunktApp.CustomComponents.InsertItems"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False"
              >
@@ -37,21 +36,7 @@
                 SelectionChanging="dataGrid_SelectionChanging"
                 >
                 <syncfusion:SfDataGrid.Columns>
-                    <syncfusion:DataGridTextColumn MappingName="ФИО" HeaderText="ФИО Гражданина">
-                        
-                    </syncfusion:DataGridTextColumn>
-                    <syncfusion:DataGridTextColumn MappingName="НомерПаспорта" HeaderText="Номер Паспорта" HeaderTextAlignment="Center" CellTextAlignment="Center">
 
-                    </syncfusion:DataGridTextColumn>
-                    <syncfusion:DataGridDateColumn MappingName="ДатаРождения" HeaderTextAlignment="Center" CellTextAlignment="Center" HeaderText="Дата Рождения">
-                        
-                    </syncfusion:DataGridDateColumn>
-                    <syncfusion:DataGridTextColumn MappingName="АдресПроживания" HeaderText="Адрес Проживания" HeaderTextAlignment="Center" CellTextAlignment="Center" >
-
-                    </syncfusion:DataGridTextColumn>
-                    <syncfusion:DataGridComboBoxColumn MappingName="Страна" HeaderTextAlignment="Center" CellTextAlignment="Center"    >
-                  
-                    </syncfusion:DataGridComboBoxColumn>
 
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>

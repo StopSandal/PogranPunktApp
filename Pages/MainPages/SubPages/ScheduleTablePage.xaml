@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PogranPunktApp.Pages.MainPages.SubPages.ScheduleTablePage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:PogranPunktApp.CustomComponents"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackGroundColor}">
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+
+                <syncfusion:SfDataGrid 
+            x:Name="dataGrid"
+            GridLinesVisibility="Both"
+            ColumnWidthMode="Fill"
+            HorizontalOptions="FillAndExpand"
+            HeaderGridLinesVisibility="Both"
+            VerticalOptions="FillAndExpand"
+            SelectionMode="Single"
+            AllowEditing="True"
+            SelectionChanged="SelectedRow"
+            SortingMode="Multiple"
+            AllowTriStateSorting="True"
+            Margin="20,10,20,0"
+            
+            ClipToBounds="True"
+            ShowSortNumbers="True"
+            AutoGenerateColumnsMode="SmartReset"
+            BackgroundColor="{StaticResource ElementsBackGroundColor}"
+            DefaultStyle="{StaticResource DataGridMainStyle}"
+            CurrentCellBeginEdit="dataGrid_CurrentCellBeginEdit"
+            SelectionChanging="dataGrid_SelectionChanging"
+            >
+                    <syncfusion:SfDataGrid.Columns>
+
+
+                    </syncfusion:SfDataGrid.Columns>
+                </syncfusion:SfDataGrid>
+                <local:ScheduleInsertLayout OnInserted="UpdateTable"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout>
+            <local:BackButton ></local:BackButton>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

@@ -80,7 +80,7 @@ public partial class AddRoutesPage : ContentPage
             сотрудник = (sender as SfComboBox).SelectedItem as СотрудникиAdapter;
 
             EmployeeList.ItemsSource = new TableCollection<ДежурныйСотрудник>(DBQuery.getAllTable($"declare @Temp INT exec @Temp = [dbo].ВернутьДежурствоСотрудника {сотрудник.ID} " +
-				$"Select Дежурства.ID,ФИО,Дата_Рождения,Название,ДатаВремя_Конца,ДатаВремя_Начала from Дежурства,Сотрудники,Должность where Дежурства.ID=@Temp and Сотрудники.ID=Дежурства.ID_Сотрудника and ID_Должности=Должность.ID"));
+				$"Select Дежурства.ID,ФИО,Дата_Рождения,Название,ДатаВремя_Конца,ДатаВремя_Начала,Сотрудники.ID as 'ID_Сотрудника' from Дежурства,Сотрудники,Должность where Дежурства.ID=@Temp and Сотрудники.ID=Дежурства.ID_Сотрудника and ID_Должности=Должность.ID"));
         }
     }
 

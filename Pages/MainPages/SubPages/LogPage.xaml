@@ -18,6 +18,8 @@
         VerticalOptions="Fill"
         SelectionMode="Single"
         SortingMode="Multiple"
+        RowHeight="70"
+                AutoGenerateColumnsMode="None"
         AllowTriStateSorting="True"
         Margin="20,10,80,0"
         ClipToBounds="True"
@@ -25,6 +27,38 @@
         BackgroundColor="{StaticResource ElementsBackGroundColor}"
         DefaultStyle="{StaticResource DataGridMainStyle}"
         >
+                <syncfusion:SfDataGrid.Columns >
+                    <syncfusion:DataGridTextColumn MappingName="OldId" HeaderText="ID" ColumnWidthMode="FitByCell" />
+                    <syncfusion:DataGridTextColumn MappingName="Фио" HeaderText="ФИО Гражданина" ColumnWidthMode="Fill">
+
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridTextColumn MappingName="НомерПаспорта" HeaderText="Номер Паспорта" HeaderTextAlignment="Center" CellTextAlignment="Center">
+
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridDateColumn MappingName="ДатаРождения" HeaderTextAlignment="Center" CellTextAlignment="Center" HeaderText="Дата Рождения">
+
+                    </syncfusion:DataGridDateColumn>
+                    <syncfusion:DataGridTextColumn MappingName="АдресПроживания" HeaderText="Адрес Проживания" HeaderTextAlignment="Center" CellTextAlignment="Center" ColumnWidthMode="Fill"  >
+
+                    </syncfusion:DataGridTextColumn>
+                    <syncfusion:DataGridTextColumn MappingName="Страна" HeaderText="Страна" HeaderTextAlignment="Center" CellTextAlignment="Center"  ColumnWidthMode="FitByHeader"   >
+
+                    </syncfusion:DataGridTextColumn>
+
+
+                    <syncfusion:DataGridTextColumn MappingName="IDUser" HeaderText="ID Пользователя" HeaderTextAlignment="Center" CellTextAlignment="Center"  />
+                    <syncfusion:DataGridTextColumn MappingName="ConUser" HeaderText="Соединённый пользователь" HeaderTextAlignment="Center" CellTextAlignment="Center"  />
+                    <syncfusion:DataGridTextColumn MappingName="NameHost" HeaderText="Устройство" HeaderTextAlignment="Center" CellTextAlignment="Center"  />
+                    <syncfusion:DataGridTextColumn MappingName="DateOfLog" HeaderText="Дата" HeaderTextAlignment="Center" CellTextAlignment="Center"  />
+                    <syncfusion:DataGridTextColumn MappingName="LogType" HeaderTextAlignment="Center" CellTextAlignment="Center" HeaderText="Тип" ColumnWidthMode="FitByHeader"  />
+                    <syncfusion:DataGridTemplateColumn MappingName="Id" HeaderText="Восстановление" CellPadding="0" ColumnWidthMode="FitByHeader" >
+                        <syncfusion:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <local:RestoreLogButton HorizontalOptions="Center" VerticalOptions="Center" ID="{Binding Id}" FontSize="Micro" OnRestore="UpdateTable"/>
+                            </DataTemplate>
+                        </syncfusion:DataGridTemplateColumn.CellTemplate>
+                    </syncfusion:DataGridTemplateColumn>
+                </syncfusion:SfDataGrid.Columns> 
             </syncfusion:SfDataGrid>
         </StackLayout>
         <StackLayout>
