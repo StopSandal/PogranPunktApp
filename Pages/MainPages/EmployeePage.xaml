@@ -40,17 +40,7 @@
 
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
-                <Border 
-       HorizontalOptions="Fill"
-       Margin="20,0,20,0" 
-       StrokeThickness="1" 
-       Stroke="{StaticResource BorderStorkeColor}" 
-       BackgroundColor="{StaticResource ElementsBackGroundColor}"
-       >
-                    <StackLayout>
-                        <local:BaseButton Text="Test"/>
-                    </StackLayout>
-                </Border>
+                <local:EmployeeInsertLayout OnInserted="UpdateTable"/>
             </StackLayout>
         <StackLayout>
             <StackLayout Orientation="Vertical" Margin="0,0,5,0">

@@ -103,4 +103,9 @@ public partial class EmployeePage : ContentPage
     {
         return DBQuery.ChangeTable($"Update Сотрудники Set {row.ToUpdateSetValuesString()}  where ID = {row.getID()}");
     }
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<ОтделКадровТаблица>(DBQuery.getAllTable("select * from ОтделКадровТаблица"));
+
+    }
 }

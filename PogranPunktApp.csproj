@@ -81,10 +81,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="CustomComponents\AutomobileInsertLayout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CustomComponents\CivilianInsertLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CustomComponents\CountryInsertLayout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomComponents\EmployeeInsertLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CustomComponents\GoodTypesInsertLayout.xaml">

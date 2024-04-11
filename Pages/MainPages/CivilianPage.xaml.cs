@@ -1,4 +1,3 @@
-
 using PogranPunktApp.Extensions.Listeners;
 using PogranPunktApp.Pages.MainPages.SubPages;
 using PogranPunktApp.SQL;
@@ -117,4 +116,9 @@ public partial class CivilianPage : ContentPage
 	{
 		await Navigation.PushAsync(new CountriesPage());
 	}
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<ГражданинСтраны>(DBQuery.getAllTable("select Гражданин.*, Название from Гражданин, Страны where ID_Страны=Страны.ID"));
+
+    }
 }

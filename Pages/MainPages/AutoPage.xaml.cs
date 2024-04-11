@@ -84,4 +84,9 @@ public partial class AutoPage : ContentPage
     {
         return DBQuery.ChangeTable($"Update Автомобиль Set {row.ToUpdateSetValuesString()}  where ID = {row.ID}"); 
     }
+    private void UpdateTable(object sender, EventArgs e)
+    {
+        this.dataGrid.ItemsSource = new TableCollection<РасширениеАвтомобильМодель>(DBQuery.getAllTable($"select * from Автомобиль,ВидыТранспорта where ID_Вида=ВидыТранспорта.ID"));
+
+    }
 }
