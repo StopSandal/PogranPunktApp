@@ -138,6 +138,9 @@
 	  <MauiXaml Update="Pages\MainPages\SubPages\AddRoutesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\MainPages\SubPages\ChangePasswordPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\MainPages\SubPages\ColumnDiagramPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

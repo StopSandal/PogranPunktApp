@@ -1,4 +1,6 @@
 using PogranPunktApp.Pages.MainPages;
+using PogranPunktApp.Pages.MainPages.SubPages;
+using PogranPunktApp.SQL;
 
 namespace PogranPunktApp.Pages;
 
@@ -13,15 +15,17 @@ public partial class MainMenuPage : ContentPage
     {
         base.OnAppearing();
         Unfocus();
+        if ( Convert.ToBoolean(DBQuery.getAllTable($"select dbo.InformAboutPassword('{UserInfo.UserInfo.UserLogin}')").Rows[0][0]) )
+        {
+            ChangePasswordRemainder.IsVisible = true;  
+        }
         if (UserInfo.UserInfo.LevelOfRules!=UserInfo.Roles.Admin)
             LogAdminStack.IsVisible = false;
         userLoginLable.Text = "Пользователь: " + UserInfo.UserInfo.UserName;
         levelLable.Text = "Уровень доступа: " + UserInfo.RolesMethods.RolesToString(UserInfo.UserInfo.LevelOfRules);
+        stackRoutes.Focus();
     }
-    private void InitOnStart()
-    {
 
-    }
     private async void ToEmployeePage(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new EmployeePage());
@@ -65,9 +69,8 @@ public partial class MainMenuPage : ContentPage
         await Navigation.PopAsync();
 
     }
-
-    private void PointerGestureRecognizer_PointerEntered(object sender, PointerEventArgs e)
+    private async void OpenChangePassword(object sender, EventArgs e)
     {
-
+        await Navigation.PushModalAsync(new ChangePasswordPage());
     }
 }

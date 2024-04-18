@@ -24,7 +24,6 @@ namespace PogranPunktApp.SQL.Tables
         public int IdСтраны { get; set; }
         public string Страна { get; set; }
 
-        public int? IdUser { get; set; }
 
         public string ConUser { get; set; }
 
@@ -44,7 +43,7 @@ namespace PogranPunktApp.SQL.Tables
             АдресПроживания = Convert.ToString(row["Адрес_Проживания"]);
             IdСтраны = Convert.ToInt32(row["Id_Страны"]);
             Страна = Convert.ToString(row["название"]);
-            IdUser = row["Id_User"] as int?;
+    
             ConUser = Convert.ToString(row["Con_User"]);
             NameHost = Convert.ToString(row["Name_Host"]);
             DateOfLog = Convert.ToDateTime(row["DateOfLog"]);

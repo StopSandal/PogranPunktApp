@@ -19,7 +19,7 @@ namespace PogranPunktApp.Extensions.Reports
                 var worksheet = excelPackage.Workbook.Worksheets.Add("Report");
 
                 // Set title
-                worksheet.Cells["A1"].Value = "Отчёт за всё время";
+                worksheet.Cells["A1"].Value = "Отчёт о работе предприятия\n за всё время работы";
                 worksheet.Row(1).Style.Font.Bold = true;
                 worksheet.Row(1).Style.Font.Size = 36;
 
@@ -113,7 +113,7 @@ namespace PogranPunktApp.Extensions.Reports
                 var worksheet = excelPackage.Workbook.Worksheets.Add("Report");
 
                 // Set title
-                worksheet.Cells["A1"].Value = "Отчёт за " + year + " год";
+                worksheet.Cells["A1"].Value = "Отчёт о перемещённых товарах\nза " + year + " год";
                 worksheet.Cells["A1"].Style.Font.Bold = true;
                 worksheet.Cells["A1"].Style.Font.Size = 36;
                 // Set column headers

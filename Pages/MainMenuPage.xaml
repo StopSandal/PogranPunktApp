@@ -12,13 +12,24 @@
         <Color x:Key="LableTextColor">#ffffd7</Color>
     </ContentPage.Resources>
     <ScrollView>
-        <VerticalStackLayout Padding="0" Margin="0" BackgroundColor="#627b3e">
-            <Border StrokeThickness="2" Stroke="#c41e3a" StrokeShape="RoundRectangle 10" Margin="5" Padding="0"  Opacity="0.8" VerticalOptions="Start" HorizontalOptions="End" BackgroundColor="#96aa77" >
+        <StackLayout Padding="0" Margin="0" BackgroundColor="#627b3e">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Border x:Name="ChangePasswordRemainder" IsVisible="True" StrokeThickness="2" Stroke="Red" StrokeShape="RoundRectangle 10" Margin="5" Padding="0"  Opacity="0.8" >
+                        <StackLayout Margin="2" Padding="3">
+                            <Label Text="У вас не сменен пароль! Срочно смените его." FontSize="Default" TextColor="{StaticResource TextContrastColor}"/>
+                            <Button Margin="0" Padding="2" BackgroundColor="Transparent" BorderColor="Transparent" Text="Изменить пароль" TextColor="Blue" FontAttributes="Bold" FontAutoScalingEnabled="True" FontSize="Default" Clicked="OpenChangePassword"/>
+                        </StackLayout>
+                    </Border>
+                </StackLayout>
+                <Border StrokeThickness="2" Stroke="#c41e3a" StrokeShape="RoundRectangle 10" Margin="5" Padding="0"  Opacity="0.8" VerticalOptions="Start" HorizontalOptions="EndAndExpand" BackgroundColor="#96aa77" >
                 <VerticalStackLayout Margin="10" Padding="1" >
                     <Label Text="Пользователь: Малашков" FontSize="Default" x:Name="userLoginLable"/>
                     <Label Text="Уровень доступа: Админимтратор" FontSize="Default" x:Name="levelLable"/>
                 </VerticalStackLayout>
             </Border>
+            </StackLayout>
         <Grid RowSpacing="5">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -98,6 +109,6 @@
                     </ImageButton>
                 </VerticalStackLayout>
         </StackLayout>
-    </VerticalStackLayout>
+    </StackLayout>
     </ScrollView>
 </ContentPage> 
